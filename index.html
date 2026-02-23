@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - CameraLens by Genstellar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00D9FF;
+            --primary-dark: #00B8D4;
+            --secondary: #1A1A1A;
+            --text-primary: #1A1A1A;
+            --text-secondary: #666666;
+            --text-tertiary: #999999;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --bg-accent: #F0FDFF;
+            --border: #E5E5E5;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --gradient: linear-gradient(135deg, #00D9FF 0%, #00B8D4 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .header-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header-link:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 12px;
+        }
+
+        .last-updated {
+            font-size: 14px;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: -40px auto 0;
+            background: var(--bg-primary);
+            border-radius: 16px;
+            box-shadow: 0 4px 24px var(--shadow);
+            padding: 60px;
+            position: relative;
+        }
+
+        /* Privacy Badge */
+        .privacy-badge {
+            background: var(--bg-accent);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 48px;
+            display: flex;
+            align-items: start;
+            gap: 16px;
+        }
+
+        .badge-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 24px;
+        }
+
+        .privacy-badge h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .privacy-badge p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 56px 0 24px;
+            letter-spacing: -0.01em;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 32px 0 16px;
+        }
+
+        p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        /* Lists */
+        ul {
+            margin: 20px 0 28px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        li {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 8px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 28px 0;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .info-box strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 40px 0;
+        }
+
+        .contact-section h2 {
+            margin-top: 0;
+            border: none;
+            padding-bottom: 0;
+            margin-bottom: 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .contact-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-value {
+            font-size: 16px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .contact-value a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .contact-value a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary);
+            color: white;
+            padding: 60px 40px 40px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-tagline {
+            font-size: 15px;
+            opacity: 0.7;
+            margin-bottom: 32px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 32px 0;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 24px;
+            }
+
+            .hero {
+                padding: 60px 24px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subtitle {
+                font-size: 18px;
+            }
+
+            .container {
+                margin: -30px 20px 0;
+                padding: 40px 28px;
+                border-radius: 12px;
+            }
+
+            h2 {
+                font-size: 26px;
+                margin: 40px 0 20px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            .privacy-badge {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--primary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+    <div class="header-content">
+        <a href="https://genstellar.in" class="logo">
+            <div class="logo-icon">CL</div>
+            <span class="logo-text">CameraLens</span>
+        </a>
+        <a href="https://genstellar.in" class="header-link">genstellar.in</a>
+    </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">Your privacy is our priority</p>
+        <p class="last-updated">Last Updated: December 24, 2025</p>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+    <!-- Privacy Badge -->
+    <div class="privacy-badge">
+        <div class="badge-icon">🔒</div>
+        <div>
+            <h3>Complete On-Device Processing</h3>
+            <p>CameraLens processes everything locally on your device. We do not collect, store, or transmit your images, detected text, or any personal data to external servers. Your privacy is protected by design.</p>
+        </div>
+    </div>
+
+    <!-- Introduction -->
+    <h2>Introduction</h2>
+    <p>Welcome to CameraLens, developed by Genstellar. This Privacy Policy explains our commitment to protecting your privacy and details how we handle information when you use our mobile application.</p>
+    <p>CameraLens is built on a foundation of privacy-first design principles. All image processing, text recognition, and barcode scanning occur entirely on your device using Google ML Kit's on-device models.</p>
+
+    <!-- Information Collection -->
+    <h2>Information We Collect</h2>
+
+    <h3>Data We Do NOT Collect</h3>
+    <p>CameraLens does not collect, store, transmit, or process any of the following:</p>
+    <ul>
+        <li>Camera images or video footage</li>
+        <li>Detected or recognized text content</li>
+        <li>Scanned barcode or QR code data</li>
+        <li>Identified objects or image labels</li>
+        <li>Personal identifying information</li>
+        <li>Precise location data</li>
+        <li>Usage patterns or analytics</li>
+        <li>Device identifiers or advertising IDs</li>
+        <li>Contacts, messages, or other device data</li>
+    </ul>
+
+    <h3>On-Device Processing Only</h3>
+    <p>All of the following operations are performed exclusively on your device and never leave it:</p>
+    <ul>
+        <li><strong>Real-time image processing</strong> from your camera feed</li>
+        <li><strong>Optical Character Recognition (OCR)</strong> for text detection</li>
+        <li><strong>Object identification</strong> through image labeling</li>
+        <li><strong>Barcode and QR code scanning</strong> with data interpretation</li>
+    </ul>
+
+    <!-- Permissions -->
+    <h2>Permissions Explained</h2>
+    <p>CameraLens requires certain Android permissions to function. Here's exactly why each permission is needed and how it's used:</p>
+
+    <div class="info-box">
+        <p><strong>Camera</strong> — Essential for capturing images to perform real-time detection, text recognition, and barcode scanning. Camera access is only active while the app is open and in use.</p>
+    </div>
+
+    <div class="info-box">
+        <p><strong>Internet</strong> — Used exclusively to fetch public metadata (page titles, descriptions, preview images) when you scan a QR code containing a website URL. This provides you with a preview before visiting the site.</p>
+    </div>
+
+    <div class="info-box">
+        <p><strong>Location (Fine & Coarse)</strong> — Required by Android's security framework to enable WiFi connection features. Used only when you scan a WiFi QR code and choose to connect. Your actual location is never tracked, accessed, or stored.</p>
+    </div>
+
+    <div class="info-box">
+        <p><strong>WiFi State & Change WiFi State</strong> — Enables checking WiFi availability and connecting to networks from scanned WiFi QR codes. Only activated when you use WiFi QR code features.</p>
+    </div>
+
+    <div class="info-box">
+        <p><strong>Vibrate</strong> — Provides haptic feedback for button presses and interactions, enhancing the user experience with tactile responses.</p>
+    </div>
+
+    <div class="info-box">
+        <p><strong>Flashlight</strong> — Allows you to manually enable the camera flash for improved scanning visibility in low-light environments.</p>
+    </div>
+
+    <!-- ML Kit -->
+    <h2>Google ML Kit Integration</h2>
+    <p>CameraLens leverages Google ML Kit for powerful on-device machine learning capabilities. ML Kit provides:</p>
+    <ul>
+        <li><strong>Image Labeling</strong> to identify and classify objects in real-time</li>
+        <li><strong>Text Recognition</strong> for accurate optical character recognition</li>
+        <li><strong>Barcode Scanning</strong> supporting QR codes and multiple barcode formats</li>
+    </ul>
+    <p><strong>Important Privacy Note:</strong> All ML Kit models are downloaded directly to your device during app installation or first use. No image data or detection results are ever transmitted to Google's servers or any external services.</p>
+
+    <!-- Third-Party Services -->
+    <h2>Third-Party Services</h2>
+
+    <h3>URL Metadata Retrieval</h3>
+    <p>When you scan a QR code containing a website URL, CameraLens may fetch public metadata from that website to display a preview. This request goes directly from your device to the website without any intermediary services or tracking.</p>
+
+    <h3>What We Don't Use</h3>
+    <p>CameraLens intentionally excludes:</p>
+    <ul>
+        <li>Analytics platforms (Google Analytics, Firebase Analytics, etc.)</li>
+        <li>Advertising networks or SDKs</li>
+        <li>User behavior tracking services</li>
+        <li>Cloud storage or backup services</li>
+        <li>Third-party crash reporting with personal data</li>
+        <li>Social media integrations or SDKs</li>
+    </ul>
+
+    <!-- Data Storage -->
+    <h2>Data Storage & Retention</h2>
+    <p>CameraLens operates with a zero-storage privacy model:</p>
+    <ul>
+        <li>All processing occurs in volatile memory (RAM) only</li>
+        <li>No images are saved to permanent storage</li>
+        <li>Detection results are cleared when you switch modes or exit the app</li>
+        <li>No persistent logs of your activity are maintained</li>
+        <li>Temporary data in memory is automatically released by the system</li>
+    </ul>
+
+    <!-- Data Sharing -->
+    <h2>Data Sharing & Disclosure</h2>
+    <p>We do not share, sell, rent, or disclose any user data to third parties because we fundamentally do not collect any user data. Your camera feed and all detection results remain exclusively on your device under your control.</p>
+
+    <!-- Children's Privacy -->
+    <h2>Children's Privacy</h2>
+    <p>CameraLens does not knowingly collect information from anyone, including children under 13 years of age. Our zero-data-collection approach means the app is inherently safe for users of all ages. However, we recommend parental supervision when children use camera-enabled applications.</p>
+
+    <!-- Security -->
+    <h2>Security Measures</h2>
+    <p>Since all processing occurs locally and no data is transmitted to external servers, your information remains protected within your device's security architecture. We recommend:</p>
+    <ul>
+        <li>Keeping your device's operating system and security patches up to date</li>
+        <li>Using strong device security (PIN, password, biometric authentication)</li>
+        <li>Exercising caution when scanning QR codes from unknown or untrusted sources</li>
+        <li>Reviewing app permissions regularly in your device settings</li>
+    </ul>
+
+    <!-- User Rights -->
+    <h2>Your Privacy Rights</h2>
+    <p>Under various data protection regulations (GDPR, CCPA, etc.), you have certain rights regarding your personal data. However, since CameraLens does not collect, store, or process your personal data:</p>
+    <ul>
+        <li>There is no data for us to access, export, or delete</li>
+        <li>You maintain complete control over all processing on your device</li>
+        <li>You can uninstall the app at any time to remove all associated data</li>
+        <li>No data persists on external servers after uninstallation</li>
+    </ul>
+
+    <!-- Changes to Policy -->
+    <h2>Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy periodically to reflect changes in our practices, technology, legal requirements, or other factors. When we make changes:</p>
+    <ul>
+        <li>The updated policy will be posted on this page</li>
+        <li>The "Last Updated" date will be revised</li>
+        <li>Significant changes may be communicated through the app</li>
+        <li>Continued use of the app after changes constitutes acceptance</li>
+    </ul>
+    <p>We encourage you to review this Privacy Policy periodically to stay informed about how we protect your privacy.</p>
+
+    <!-- International Compliance -->
+    <h2>International Compliance</h2>
+    <p>CameraLens is designed to comply with major data protection regulations worldwide:</p>
+    <ul>
+        <li><strong>GDPR (European Union)</strong> — No personal data collection means no data subject obligations</li>
+        <li><strong>CCPA (California)</strong> — Zero data collection eliminates disclosure requirements</li>
+        <li><strong>PIPEDA (Canada)</strong> — Privacy-by-design architecture ensures compliance</li>
+        <li><strong>LGPD (Brazil)</strong> — On-device processing aligns with data minimization principles</li>
+    </ul>
+    <p>Since all processing is local, there are no international data transfers, eliminating cross-border data protection concerns.</p>
+
+    <!-- Transparency -->
+    <h2>Transparency & Trust</h2>
+    <p>At Genstellar, we believe in earning your trust through transparency. CameraLens is built with open principles, and we're committed to clear communication about our privacy practices. If you have questions about how the app works or want to verify our claims, we encourage you to:</p>
+    <ul>
+        <li>Review the app's permission usage in your device settings</li>
+        <li>Monitor network activity to confirm local-only processing</li>
+        <li>Contact us with any concerns or questions</li>
+    </ul>
+
+    <!-- Contact -->
+    <div class="contact-section">
+        <h2>Contact Information</h2>
+        <p>If you have questions, concerns, or feedback about this Privacy Policy or CameraLens, we're here to help:</p>
+
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-label">Developer</div>
+                <div class="contact-value">Genstellar</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">Website</div>
+                <div class="contact-value"><a href="https://genstellar.in">genstellar.in</a></div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">Email</div>
+                <div class="contact-value"><a href="mailto:support@genstellar.in">support@genstellar.in</a></div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">Application</div>
+                <div class="contact-value">CameraLens</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Consent -->
+    <h2>Your Consent</h2>
+    <p>By downloading, installing, and using CameraLens, you acknowledge that you have read and understood this Privacy Policy and agree to its terms. If you do not agree with any part of this policy, please discontinue use of the application.</p>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">CameraLens</div>
+        <div class="footer-tagline">Privacy-first camera intelligence. Powered by on-device AI.</div>
+
+        <div class="footer-links">
+            <a href="https://genstellar.in" class="footer-link">About Genstellar</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="mailto:support@genstellar.in" class="footer-link">Contact</a>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-copyright">
+            © 2025 Genstellar. All rights reserved.<br>
+            CameraLens processes all data locally on your device.
+        </div>
+    </div>
+</footer>
+</body>
+</html>
