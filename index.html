@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ambient background -->
@@ -26,6 +27,7 @@
     <span class="orb orb--2"></span>
     <span class="orb orb--3"></span>
     <div class="grid-overlay"></div>
+    <div class="cursor-aura" id="cursorAura"></div>
   </div>
 
   <!-- ===== Navigation ===== -->
@@ -36,10 +38,10 @@
         <span class="nav__logo-text">Tejbhan&nbsp;Sahu</span>
       </a>
       <nav class="nav__links" aria-label="Primary">
+        <a href="#clients">Clients</a>
         <a href="#about">About</a>
         <a href="#impact">Impact</a>
         <a href="#experience">Experience</a>
-        <a href="#clients">Clients</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -62,10 +64,22 @@
 
   <main id="main">
     <!-- ===== Hero ===== -->
-    <section class="hero">
+    <section class="hero" id="hero">
+      <!-- Live WebGL Fluid Wave Canvas -->
+      <div class="hero__canvas-wrap" aria-hidden="true">
+        <canvas id="heroFluidCanvas" class="hero__canvas"></canvas>
+        <div class="hero__canvas-overlay"></div>
+      </div>
+
       <div class="container hero__inner">
         <div class="hero__copy">
-          <span class="badge badge--live"><span class="dot"></span>Open to senior Android roles</span>
+          <div class="hero__badge-wrap">
+            <span class="badge badge--live" id="liveBadge">
+              <span class="dot"></span>
+              <span class="badge__text" id="badgeText">Open to senior Android roles</span>
+            </span>
+            <span class="badge badge--tech"><span class="badge__tech-icon">⚡</span> Kotlin · Compose · M3</span>
+          </div>
           <h1 class="hero__title">
             Hi, I'm Tejbhan —<br />
             I build <span class="grad">fast, scalable</span> Android apps, end to end.
@@ -114,17 +128,44 @@
         </aside>
       </div>
 
-      <a href="#about" class="hero__scroll" aria-label="Scroll to About">
+      <a href="#clients" class="hero__scroll" aria-label="Scroll to Companies and Clients">
         <span class="hero__scroll-dot"></span>
         <span>Scroll</span>
       </a>
+    </section>
+
+    <!-- ===== Companies & clients ===== -->
+    <section class="section" id="clients">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">01</span>
+          <h2 class="section__title">Companies &amp; clients</h2>
+          <span class="section__rule"></span>
+        </div>
+
+        <p class="logos__label reveal">Brands &amp; clients I've shipped for</p>
+        <div class="logos logos--clients reveal">
+          <div class="logo-tile" style="--brand:#E4002B" title="Airtel — Airtel Fiverse"><img src="assets/logos/airtel.png" alt="Airtel" loading="lazy" /></div>
+          <div class="logo-tile" style="--brand:#7AB82E" title="Saregama — Padhanisa"><img src="assets/logos/saregama.png" alt="Saregama" loading="lazy" /></div>
+          <div class="logo-tile" style="--brand:#6A1B9A" title="Dr. Reddy's — DRL Healify"><img src="assets/logos/dr_reddys.png" alt="Dr. Reddy's" loading="lazy" /></div>
+          <div class="logo-tile" style="--brand:#2E3192" title="Cengage — Cengage Digital"><img src="assets/logos/cengage.png" alt="Cengage" loading="lazy" /></div>
+          <div class="logo-tile" style="--brand:#E53329" title="JustHomz"><img src="assets/logos/justhomz.png" alt="JustHomz" loading="lazy" /></div>
+        </div>
+
+        <p class="logos__label reveal">Where I've worked</p>
+        <div class="logos reveal">
+          <div class="logo-tile" style="--brand:#8CC63F" title="InnovationM"><img src="assets/logos/innovationm.png" alt="InnovationM" loading="lazy" /></div>
+          <div class="logo-tile" style="--brand:#2E7DF6" title="Squareboat"><img src="assets/logos/squareboat.png" alt="Squareboat Solutions" loading="lazy" /></div>
+          <div class="logo-tile" style="--brand:#E6A817" title="Techtonic"><img src="assets/logos/techtonic.png" alt="Techtonic Enterprise" loading="lazy" /></div>
+        </div>
+      </div>
     </section>
 
     <!-- ===== About ===== -->
     <section class="section" id="about">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__num">01</span>
+          <span class="section__num">02</span>
           <h2 class="section__title">About</h2>
           <span class="section__rule"></span>
         </div>
@@ -151,25 +192,45 @@
             </p>
 
             <div class="about__principles">
-              <article class="principle glass" style="--wm:url('assets/watermarks/architecture.png')">
-                <div class="principle__icon">🧱</div>
-                <h3>Architecture</h3>
-                <p>MVVM / MVI, Clean Architecture, modularization, Hilt DI.</p>
+              <article class="principle principle--arch glass reveal" data-tilt style="--wm:url('assets/watermarks/architecture.png')">
+                <div class="principle__watermark" aria-hidden="true">
+                  <img src="assets/watermarks/architecture.png" alt="" loading="lazy" />
+                </div>
+                <div class="principle__content">
+                  <div class="principle__icon">🧰</div>
+                  <h3>Architecture</h3>
+                  <p>MVVM / MVI, Clean Architecture, modularization, Hilt DI.</p>
+                </div>
               </article>
-              <article class="principle glass" style="--wm:url('assets/watermarks/compose.png')">
-                <div class="principle__icon">✨</div>
-                <h3>Jetpack Compose</h3>
-                <p>Declarative UI, Material 3, state hoisting &amp; design systems.</p>
+              <article class="principle principle--compose glass reveal" data-tilt style="--wm:url('assets/watermarks/compose.png')">
+                <div class="principle__watermark" aria-hidden="true">
+                  <img src="assets/watermarks/compose.png" alt="" loading="lazy" />
+                </div>
+                <div class="principle__content">
+                  <div class="principle__icon">✨</div>
+                  <h3>Jetpack Compose</h3>
+                  <p>Declarative UI, Material 3, state hoisting &amp; design systems.</p>
+                </div>
               </article>
-              <article class="principle glass" style="--wm:url('assets/watermarks/performance.png')">
-                <div class="principle__icon">⚡</div>
-                <h3>Performance</h3>
-                <p>ANR reduction, memory profiling, LeakCanary, R8 — jank-free UI.</p>
+              <article class="principle principle--perf glass reveal" data-tilt style="--wm:url('assets/watermarks/performance.png')">
+                <div class="principle__watermark" aria-hidden="true">
+                  <img src="assets/watermarks/performance.png" alt="" loading="lazy" />
+                </div>
+                <div class="principle__content">
+                  <div class="principle__icon">⚡</div>
+                  <h3>Performance</h3>
+                  <p>ANR reduction, memory profiling, LeakCanary, R8 — jank-free UI.</p>
+                </div>
               </article>
-              <article class="principle glass" style="--wm:url('assets/watermarks/specialties.png')">
-                <div class="principle__icon">🧩</div>
-                <h3>Specialties</h3>
-                <p>Real-time media, WebSocket, offline-first sync, maps, AR &amp; 3D.</p>
+              <article class="principle principle--spec glass reveal" data-tilt style="--wm:url('assets/watermarks/specialties.png')">
+                <div class="principle__watermark" aria-hidden="true">
+                  <img src="assets/watermarks/specialties.png" alt="" loading="lazy" />
+                </div>
+                <div class="principle__content">
+                  <div class="principle__icon">🧩</div>
+                  <h3>Specialties</h3>
+                  <p>Real-time media, WebSocket, offline-first sync, maps, AR &amp; 3D.</p>
+                </div>
               </article>
             </div>
           </div>
@@ -195,7 +256,7 @@
     <section class="section" id="impact">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__num">02</span>
+          <span class="section__num">03</span>
           <h2 class="section__title">Impact by the numbers</h2>
           <span class="section__rule"></span>
         </div>
@@ -217,7 +278,7 @@
     <section class="section" id="experience">
       <div class="container">
         <div class="section__head reveal">
-          <span class="section__num">03</span>
+          <span class="section__num">04</span>
           <h2 class="section__title">Experience</h2>
           <span class="section__rule"></span>
         </div>
@@ -306,33 +367,6 @@
       </div>
     </section>
 
-    <!-- ===== Companies & clients ===== -->
-    <section class="section" id="clients">
-      <div class="container">
-        <div class="section__head reveal">
-          <span class="section__num">04</span>
-          <h2 class="section__title">Companies &amp; clients</h2>
-          <span class="section__rule"></span>
-        </div>
-
-        <p class="logos__label reveal">Brands &amp; clients I've shipped for</p>
-        <div class="logos logos--clients reveal">
-          <div class="logo-tile" style="--brand:#E4002B" title="Airtel — Airtel Fiverse"><img src="assets/logos/airtel.png" alt="Airtel" loading="lazy" /></div>
-          <div class="logo-tile" style="--brand:#7AB82E" title="Saregama — Padhanisa"><img src="assets/logos/saregama.png" alt="Saregama" loading="lazy" /></div>
-          <div class="logo-tile" style="--brand:#6A1B9A" title="Dr. Reddy's — DRL Healify"><img src="assets/logos/dr_reddys.png" alt="Dr. Reddy's" loading="lazy" /></div>
-          <div class="logo-tile" style="--brand:#2E3192" title="Cengage — Cengage Digital"><img src="assets/logos/cengage.png" alt="Cengage" loading="lazy" /></div>
-          <div class="logo-tile" style="--brand:#E53329" title="JustHomz"><img src="assets/logos/justhomz.png" alt="JustHomz" loading="lazy" /></div>
-        </div>
-
-        <p class="logos__label reveal">Where I've worked</p>
-        <div class="logos reveal">
-          <div class="logo-tile" style="--brand:#8CC63F" title="InnovationM"><img src="assets/logos/innovationm.png" alt="InnovationM" loading="lazy" /></div>
-          <div class="logo-tile" style="--brand:#2E7DF6" title="Squareboat"><img src="assets/logos/squareboat.png" alt="Squareboat Solutions" loading="lazy" /></div>
-          <div class="logo-tile" style="--brand:#E6A817" title="Techtonic"><img src="assets/logos/techtonic.png" alt="Techtonic Enterprise" loading="lazy" /></div>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== Projects ===== -->
     <section class="section" id="projects">
       <div class="container">
@@ -343,10 +377,15 @@
         </div>
 
         <div class="projects">
-          <article class="card glass reveal card--feature">
+          <article class="card glass reveal card--feature" data-tilt>
             <div class="card__top">
               <span class="card__badge">1M+ downloads</span>
-              <span class="card__store">4.5 ★</span>
+              <div class="card__meta-right">
+                <span class="card__audio-wave" title="ExoPlayer Waveform Audio" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span>
+                </span>
+                <span class="card__store">4.5 ★</span>
+              </div>
             </div>
             <h3 class="card__title">Saregama Padhanisa</h3>
             <p class="card__role">Android Engineer · InnovationM</p>
@@ -361,10 +400,17 @@
             </ul>
           </article>
 
-          <article class="card glass reveal card--feature">
+          <article class="card glass reveal card--feature" data-tilt>
             <div class="card__top">
               <span class="card__badge">Enterprise</span>
-              <span class="card__store">Play Store</span>
+              <div class="card__meta-right">
+                <span class="card__radar" title="Live field telemetry across 500+ cities" aria-hidden="true">
+                  <span class="radar-ping"></span>
+                  <span class="radar-dot"></span>
+                  <span class="radar-txt">500+ Cities</span>
+                </span>
+                <span class="card__store">Play Store</span>
+              </div>
             </div>
             <h3 class="card__title">Airtel Fiverse</h3>
             <p class="card__role">Lead Android · InnovationM</p>
@@ -379,7 +425,7 @@
             </ul>
           </article>
 
-          <article class="card glass reveal">
+          <article class="card glass reveal" data-tilt>
             <div class="card__top">
               <span class="card__badge">Marketplace</span>
             </div>
@@ -394,9 +440,15 @@
             </ul>
           </article>
 
-          <article class="card glass reveal">
+          <article class="card glass reveal" data-tilt>
             <div class="card__top">
               <span class="card__badge">Telehealth</span>
+              <div class="card__meta-right">
+                <span class="card__telehealth-pulse" title="Real-time WebRTC Consults" aria-hidden="true">
+                  <span class="pulse-dot"></span>
+                  <span class="pulse-txt">Real-time</span>
+                </span>
+              </div>
             </div>
             <h3 class="card__title">DRL Healify</h3>
             <p class="card__role">Android · Squareboat</p>
@@ -409,7 +461,7 @@
             </ul>
           </article>
 
-          <article class="card glass reveal">
+          <article class="card glass reveal" data-tilt>
             <div class="card__top">
               <span class="card__badge">EdTech</span>
               <span class="card__store">100K+</span>
@@ -425,7 +477,7 @@
             </ul>
           </article>
 
-          <article class="card glass reveal">
+          <article class="card glass reveal" data-tilt>
             <div class="card__top">
               <span class="card__badge">AgriTech</span>
             </div>
