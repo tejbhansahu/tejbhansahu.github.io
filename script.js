@@ -486,7 +486,6 @@
       lastMouseMove = Date.now();
     }
     window.addEventListener("mousemove", onPointerMove, { passive: true });
-    window.addEventListener("touchmove", onPointerMove, { passive: true });
 
     hero.addEventListener("click", function (e) {
       var rect = hero.getBoundingClientRect();

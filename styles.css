@@ -80,9 +80,6 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100vw;
 }
 
 /* ---------- Smooth Theme Transition Helper ---------- */
@@ -291,6 +288,7 @@ strong { color: var(--text); font-weight: 600; }
   display: block;
   opacity: 0.95;
   filter: saturate(125%) contrast(106%);
+  pointer-events: none;
 }
 .hero__canvas-overlay {
   position: absolute;
@@ -1084,7 +1082,6 @@ strong { color: var(--text); font-weight: 600; }
   .hero {
     padding: 96px 0 50px;
     width: 100%;
-    overflow-x: hidden;
   }
   .hero__inner {
     grid-template-columns: 1fr;
