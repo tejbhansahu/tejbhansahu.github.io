@@ -1,2019 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tejbhan & Dolly — The Wedding · 20 April 2026</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
-<meta name="description" content="You are cordially invited to the wedding of Tejbhan & Dolly — Monday, 20th April 2026, Nagpur">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
-<style>
-a[href^="tel"],
-a[href^="tel"]:hover,
-a[href^="tel"]:visited,
-a[href^="tel"]:active {
-  color: inherit;
-  text-decoration: none;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tejbhan Sahu — Senior Android Engineer</title>
+  <meta name="description" content="Tejbhan Sahu — Senior Android Engineer with 6+ years building map-based, real-time, and performance-critical Android apps. Kotlin · Jetpack Compose · ARCore · Filament." />
+  <meta name="author" content="Tejbhan Sahu" />
+  <meta name="theme-color" content="#121419" />
 
-/* ─── DESIGN SYSTEM ─── */
-:root {
-  --ivory:    #FAF7F2;
-  --ivory-d:  #F0EAE0;
-  --linen:    #EDE4D6;
-  --gold:     #B89A6A;
-  --gold-l:   #D4B896;
-  --gold-d:   #8A7250;
-  --charcoal: #1C1C1C;
-  --warm:     #3A3028;
-  --muted:    #8C8075;
-  --white:    #FFFFFF;
-  --serif:    'Cormorant Garamond', Georgia, serif;
-  --sans:     'Jost', sans-serif;
-  --script:   'Great Vibes', cursive;
-}
+  <meta property="og:title" content="Tejbhan Sahu — Senior Android Engineer" />
+  <meta property="og:description" content="6+ years building map-based, real-time, performance-critical Android apps. Kotlin · Compose · ARCore · Filament." />
+  <meta property="og:type" content="website" />
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; font-size:16px; overflow-x:hidden; -webkit-overflow-scrolling:touch; }
-
-body {
-  font-family: var(--sans);
-  background: var(--ivory);
-  color: var(--warm);
-  overflow-x: hidden;
-}
-@media (pointer:fine) { body { cursor:none; } }
-
-/* ─── CUSTOM CURSOR ─── */
-.cursor {
-  position: fixed; z-index: 9999;
-  width: 8px; height: 8px;
-  background: var(--gold);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%,-50%);
-  transition: transform 0.1s;
-}
-.cursor-ring {
-  position: fixed; z-index: 9998;
-  width: 36px; height: 36px;
-  border: 1px solid rgba(184,154,106,0.5);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%,-50%);
-  transition: all 0.15s ease;
-}
-body:hover .cursor-ring { opacity:1; }
-
-/* ─── SCROLLBAR ─── */
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--ivory-d); }
-::-webkit-scrollbar-thumb { background: var(--gold); }
-
-/* ─── NAV ─── */
-nav {
-  position: fixed; top:0; left:0; right:0; z-index:1000;
-  display: flex; align-items:center; justify-content:space-between;
-  padding: 28px 60px;
-  transition: all 0.5s ease;
-}
-nav.solid {
-  padding: 16px 60px;
-  background: rgba(250,247,242,0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(184,154,106,0.2);
-}
-.nav-logo {
-  font-family: var(--script);
-  font-size: 28px;
-  color: var(--gold);
-  text-decoration: none;
-  letter-spacing: 1px;
-}
-.nav-links {
-  display: flex; list-style:none; gap:36px; align-items:center;
-}
-.nav-links a {
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--warm);
-  text-decoration: none;
-  position: relative;
-  transition: color 0.3s;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute; bottom:-4px; left:0; right:0; height:1px;
-  background: var(--gold);
-  transform: scaleX(0); transform-origin:left;
-  transition: transform 0.3s ease;
-}
-.nav-links a:hover { color: var(--gold); }
-.nav-links a:hover::after { transform: scaleX(1); }
-.nav-rsvp {
-  padding: 10px 24px;
-  border: 1px solid var(--gold) !important;
-  color: var(--gold) !important;
-  transition: all 0.3s !important;
-}
-.nav-rsvp:hover { background: var(--gold) !important; color: var(--white) !important; }
-.nav-rsvp::after { display:none !important; }
-.hamburger { display:none; flex-direction:column; gap:6px; cursor:pointer; z-index:1001; }
-.hamburger span { width:26px; height:1px; background: var(--warm); transition: all 0.3s; display:block; }
-.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-.hamburger.open span:nth-child(2) { opacity:0; }
-.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-
-/* ─── HERO ─── */
-#hero {
-  height: 100vh; min-height: 700px;
-  display: grid; grid-template-columns: 1fr 1fr;
-  position: relative; overflow: hidden;
-}
-.hero-left {
-  background: var(--charcoal);
-  display: flex; align-items:center; justify-content:center;
-  position: relative; overflow:hidden;
-}
-.hero-left-bg {
-  position: absolute; inset:0;
-  background:
-    radial-gradient(ellipse at 30% 60%, rgba(184,154,106,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 30%, rgba(184,154,106,0.06) 0%, transparent 50%);
-}
-.hero-grid-pattern {
-  position: absolute; inset:0; opacity:0.04;
-  background-image: linear-gradient(var(--gold) 1px, transparent 1px),
-    linear-gradient(90deg, var(--gold) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-.hero-left-content {
-  position: relative; z-index:2;
-  text-align: center; padding: 60px 40px;
-}
-.hero-eyebrow {
-  font-family: var(--sans);
-  font-size: 10px; font-weight:400;
-  letter-spacing: 5px; text-transform: uppercase;
-  color: var(--gold-l); margin-bottom: 32px;
-  display: flex; align-items:center; gap:16px; justify-content:center;
-}
-.hero-eyebrow::before, .hero-eyebrow::after {
-  content:''; flex:1; max-width:40px; height:1px; background: rgba(184,154,106,0.4);
-}
-.hero-script {
-  font-family: var(--script);
-  font-size: clamp(60px, 8vw, 100px);
-  color: var(--white);
-  line-height: 1;
-  display: block;
-  margin-bottom: 4px;
-}
-.hero-script-amp {
-  font-family: var(--script);
-  font-size: clamp(36px,5vw,56px);
-  color: var(--gold);
-  display: block;
-  line-height: 1.4;
-}
-.hero-date-line {
-  margin-top: 32px;
-  font-family: var(--sans);
-  font-size: 11px; font-weight:300;
-  letter-spacing: 4px; text-transform:uppercase;
-  color: rgba(255,255,255,0.5);
-}
-.hero-cta {
-  display: inline-block; margin-top: 40px;
-  padding: 13px 36px;
-  border: 1px solid rgba(184,154,106,0.5);
-  color: var(--gold-l);
-  font-size: 10px; letter-spacing:3px; text-transform:uppercase;
-  text-decoration: none; font-family: var(--sans);
-  transition: all 0.4s;
-}
-.hero-cta:hover { background: var(--gold); color: var(--charcoal); border-color: var(--gold); }
-.hero-right {
-  background: var(--linen);
-  display: flex; flex-direction:column;
-  align-items:flex-start; justify-content:flex-end;
-  padding: 60px 56px;
-  position: relative; overflow:hidden;
-}
-.hero-right-decor {
-  position: absolute; top:40px; right:40px;
-  width: 180px; height: 180px;
-  border: 1px solid rgba(184,154,106,0.25);
-  border-radius: 50%;
-}
-.hero-right-decor::before {
-  content:''; position:absolute; inset:20px;
-  border: 1px solid rgba(184,154,106,0.15);
-  border-radius:50%;
-}
-.hero-label {
-  font-family: var(--sans); font-size:10px;
-  letter-spacing:4px; text-transform:uppercase;
-  color: var(--gold); margin-bottom:16px;
-}
-.hero-tagline {
-  font-family: var(--serif);
-  font-size: clamp(28px,3.5vw,48px);
-  font-weight:300; font-style:italic;
-  color: var(--warm); line-height:1.3;
-  margin-bottom: 32px;
-}
-.hero-detail {
-  font-size: 12px; font-weight:300; letter-spacing:1px;
-  color: var(--muted); line-height:2;
-}
-.hero-scroll {
-  position: absolute; bottom:40px; right:56px;
-  writing-mode: vertical-rl;
-  font-size:10px; letter-spacing:3px;
-  color: var(--muted); text-transform:uppercase;
-  display:flex; align-items:center; gap:12px;
-  animation: scrollPulse 2s infinite;
-}
-.hero-scroll::after {
-  content:''; width:1px; height:48px; background: var(--gold); opacity:0.4;
-}
-@keyframes scrollPulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
-@keyframes fadeUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
-
-/* ── PARTICLE CANVAS ── */
-#particles { position:absolute; inset:0; z-index:1; pointer-events:none; }
-
-/* ── HERO STAGGERED TEXT ANIMATION ── */
-.hero-eyebrow { opacity:0; animation: heroIn 0.8s 0.3s ease forwards; }
-.hero-script:nth-of-type(1) { opacity:0; animation: heroIn 0.9s 0.6s ease forwards; }
-.hero-script-amp { opacity:0; animation: heroIn 0.9s 0.9s ease forwards; }
-.hero-script:nth-of-type(2) { opacity:0; animation: heroIn 0.9s 1.1s ease forwards; }
-.hero-date-line { opacity:0; animation: heroIn 0.8s 1.4s ease forwards; }
-.hero-cta { opacity:0; animation: heroIn 0.8s 1.7s ease forwards; }
-@keyframes heroIn { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-
-/* hero right side stagger */
-.hero-label { opacity:0; animation: heroRight 0.8s 0.8s ease forwards; }
-.hero-tagline { opacity:0; animation: heroRight 1s 1.1s ease forwards; }
-.hero-detail { opacity:0; animation: heroRight 0.8s 1.5s ease forwards; }
-@keyframes heroRight { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
-
-/* ── LOADER / SPLASH ── */
-#loader {
-  position:fixed; inset:0; z-index:99999;
-  background:var(--charcoal);
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  transition:opacity 0.8s ease, visibility 0.8s ease;
-  will-change: opacity;
-}
-#loader.hide { opacity:0; visibility:hidden; pointer-events:none; }
-.loader-script {
-  font-family:var(--script); font-size:clamp(48px,8vw,80px);
-  color:var(--gold); opacity:0;
-  animation: loaderName 1s 0.3s ease forwards;
-}
-@keyframes loaderName {
-  from { opacity:0; transform:scale(0.85); letter-spacing:-2px; }
-  to   { opacity:1; transform:scale(1);    letter-spacing:2px;  }
-}
-.loader-sub {
-  font-family:var(--sans); font-size:10px; font-weight:300;
-  letter-spacing:6px; text-transform:uppercase;
-  color:rgba(255,255,255,0.3); margin-top:16px;
-  opacity:0; animation: loaderFade 0.8s 0.9s ease forwards;
-}
-@keyframes loaderFade { to { opacity:1; } }
-.loader-bar-wrap {
-  width:180px; height:1px; background:rgba(255,255,255,0.08);
-  margin-top:40px; overflow:hidden;
-}
-.loader-bar {
-  height:100%; background:var(--gold);
-  animation: loaderBar 2s 0.4s cubic-bezier(0.4,0,0.2,1) forwards;
-  width:0%;
-}
-@keyframes loaderBar { to { width:100%; } }
-
-/* ── PROGRESS BAR ── */
-#progress {
-  position:fixed; top:0; left:0; z-index:10001;
-  height:2px; background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l));
-  width:0%; transition:width 0.1s linear;
-  pointer-events:none;
-}
-
-/* ── ANIMATED GOLD RULE (expands on view) ── */
-.rule {
-  width:0; height:1px; margin:0 auto 60px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  transition:width 1.2s cubic-bezier(0.4,0,0.2,1);
-}
-.rule.vis { width:60px; }
-
-/* ── EYEBROW LETTER ANIMATION ── */
-.eyebrow-anim span {
-  display:inline-block;
-  opacity:0; transform:translateY(12px);
-  transition:opacity 0.4s ease, transform 0.4s ease;
-}
-.eyebrow-anim.vis span { opacity:1; transform:translateY(0); }
-
-/* ── NUMBER COUNTER ANIMATION ── */
-.cd-num { transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1); }
-.cd-num.bump { transform:scale(1.15); }
-
-/* ── SHIMMER ON GOLD TEXT ── */
-.heading {
-  font-family: var(--serif); font-size:clamp(32px,4vw,54px);
-  font-weight:300; font-style:italic; text-align:center;
-  line-height:1.2; margin-bottom:16px;
-  background: linear-gradient(90deg, var(--warm) 0%, var(--warm) 40%, var(--gold) 50%, var(--warm) 60%, var(--warm) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
-  transition:background-position 0.6s ease;
-}
-.heading:hover { background-position:-100% center; }
-/* keep white & warm headings on dark/light backgrounds */
-#countdown .heading, #gallery .heading, #navigation .heading {
-  background:none; -webkit-text-fill-color:var(--white); color:var(--white);
-}
-#story .heading, #events .heading, #schedule .heading,
-#location .heading, #family .heading, #rsvp .heading,
-#guestinfo .heading {
-  background: linear-gradient(90deg, var(--warm) 0%, var(--warm) 40%, var(--gold) 50%, var(--warm) 60%, var(--warm) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* ── MAGNETIC BUTTON EFFECT ── */
-.mag-btn { transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1), background 0.4s, color 0.4s; }
-
-/* ── EVENT CARD HOVER: slide-up reveal ── */
-.event-card { overflow:hidden; }
-.event-card::after {
-  content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  transform:scaleX(0); transform-origin:center;
-  transition:transform 0.5s ease;
-}
-.event-card:hover::after { transform:scaleX(1); }
-.event-card .ev-num {
-  transition:transform 0.5s ease, opacity 0.5s ease;
-}
-.event-card:hover .ev-num { transform:translateY(-8px) scale(1.1); opacity:0.2; }
-
-/* ── LOCATION CARD SHIMMER BORDER ── */
-.loc-card {
-  background:var(--white); position:relative; overflow:hidden;
-}
-.loc-card::after {
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(120deg,transparent 30%,rgba(184,154,106,0.12) 50%,transparent 70%);
-  transform:translateX(-100%);
-  transition:transform 0.7s ease;
-}
-.loc-card:hover::after { transform:translateX(100%); }
-
-/* ── TIMELINE DOT PULSE ── */
-.tl-dot {
-  position:relative;
-}
-.tl-dot::before {
-  content:''; position:absolute; inset:-6px;
-  border-radius:50%; border:1px solid rgba(184,154,106,0.3);
-  animation:dotPulse 2.5s ease-in-out infinite;
-  opacity:0;
-}
-.tl-item.vis .tl-dot::before { opacity:1; }
-@keyframes dotPulse {
-  0%,100% { transform:scale(1);   opacity:0.4; }
-  50%      { transform:scale(1.6); opacity:0;   }
-}
-
-/* ── SECTION TRANSITION: clip-path wipe ── */
-.clip-reveal {
-  clip-path:inset(0 100% 0 0);
-  transition:clip-path 1s cubic-bezier(0.4,0,0.2,1);
-}
-.clip-reveal.vis { clip-path:inset(0 0% 0 0); }
-
-/* ── FAM CARD HOVER: flip shine ── */
-.fam-mini-card { position:relative; overflow:hidden; }
-.fam-mini-card::after {
-  content:''; position:absolute; top:-50%; left:-60%;
-  width:40%; height:200%;
-  background:linear-gradient(90deg,transparent,rgba(184,154,106,0.15),transparent);
-  transform:skewX(-20deg);
-  transition:left 0.6s ease;
-}
-.fam-mini-card:hover::after { left:120%; }
-
-/* ── COUNTDOWN GLOW ── */
-.cd-num {
-  font-family: var(--serif); font-size:80px; font-weight:300;
-  color: var(--gold); line-height:1; display:block;
-  text-shadow:0 0 40px rgba(184,154,106,0);
-  transition:text-shadow 0.5s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
-  will-change: transform;
-}
-.cd-unit:hover .cd-num {
-  text-shadow:0 0 40px rgba(184,154,106,0.5);
-}
-
-/* ── GALLERY ITEM SCALE + OVERLAY ── */
-.gallery-item { transition:transform 0.4s ease; }
-
-/* ── QR CARD BORDER ANIMATION ── */
-.qr-card {
-  position:relative; overflow:hidden;
-}
-.qr-card::before {
-  content:''; position:absolute; top:0; left:0;
-  width:100%; height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  animation:qrScan 3s ease-in-out infinite;
-  will-change: transform;
-}
-@keyframes qrScan { 0%{transform:translateX(-100%) translateY(0)} 50%{transform:translateX(0%) translateY(100%)} 100%{transform:translateX(100%) translateY(0)} }
-
-/* ── POEM BLOCK FADE-IN ── */
-.poem-block {
-  position:relative;
-}
-.poem-block::after {
-  content:''; position:absolute; bottom:-1px; left:50%;
-  transform:translateX(-50%);
-  width:0%; height:1px; background:var(--gold);
-  transition:width 1.5s 0.5s ease;
-}
-.poem-block.vis::after { width:60px; }
-
-/* ── RSVP FORM FIELD FOCUS ANIMATION ── */
-input:focus, select:focus, textarea:focus {
-  border-color:var(--gold);
-  box-shadow:0 0 0 3px rgba(184,154,106,0.1);
-  transition:border-color 0.3s, box-shadow 0.3s;
-}
-label { transition:color 0.3s; }
-.form-group:focus-within label { color:var(--gold); }
-
-/* ── FLOATING PETAL ANIMATION ── */
-.petal {
-  position:fixed; pointer-events:none; z-index:99998;
-  font-size:14px; opacity:0;
-  animation:petalFall linear forwards;
-}
-@keyframes petalFall {
-  0%   { opacity:0.7; transform:translateY(0) rotate(0deg) translateX(0); }
-  100% { opacity:0;   transform:translateY(100vh) rotate(720deg) translateX(40px); }
-}
-
-/* ── WAVE DIVIDER between sections ── */
-.wave-divider {
-  height:60px; overflow:hidden;
-  background:transparent; line-height:0;
-}
-.wave-divider svg { display:block; width:100%; height:60px; }
-
-/* ── FOOTER SCRIPT SHIMMER ── */
-.footer-script {
-  background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold),var(--gold-d));
-  background-size:200% auto;
-  -webkit-background-clip:text; background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:shimmer 4s linear infinite;
-}
-@keyframes shimmer { to { background-position:-200% center; } }
-
-/* ── NAV LINK ANIMATED UNDERLINE ON ACTIVE SECTION ── */
-.nav-links a.active { color:var(--gold); }
-.nav-links a.active::after { transform:scaleX(1); }
-
-/* ─── SECTION COMMON ─── */
-.section-wrap { max-width:1160px; margin:0 auto; padding:0 40px; }
-.eyebrow {
-  font-family: var(--sans); font-size:10px; font-weight:400;
-  letter-spacing:5px; text-transform:uppercase; color:var(--gold);
-  display:block; text-align:center; margin-bottom:16px;
-}
-/* heading font properties merged below */
-.subheading {
-  font-family: var(--serif); font-size:18px; font-weight:300;
-  text-align:center; color:var(--muted); font-style:italic;
-  margin-bottom:60px;
-}
-/* .rule defined above with animation */
-
-/* ─── COUNTDOWN ─── */
-#countdown {
-  background: var(--charcoal); padding:100px 40px; text-align:center;
-}
-#countdown .eyebrow { color: var(--gold-l); }
-#countdown .heading { color: var(--white); }
-.cd-grid {
-  display:flex; justify-content:center; align-items:center;
-  gap:0; margin-top:56px; flex-wrap:wrap;
-}
-.cd-unit {
-  text-align:center; padding:0 40px;
-  border-right: 1px solid rgba(255,255,255,0.08);
-}
-.cd-unit:last-child { border-right:none; }
-/* cd-num merged below */
-.cd-lbl {
-  font-family: var(--sans); font-size:9px; font-weight:400;
-  letter-spacing:4px; text-transform:uppercase;
-  color: rgba(255,255,255,0.35); margin-top:12px;
-}
-
-/* ─── STORY ─── */
-#story { padding:120px 0; background:var(--ivory); }
-.story-intro {
-  max-width:600px; margin:0 auto 80px;
-  text-align:center;
-}
-.story-intro p {
-  font-family: var(--serif); font-size:19px; font-weight:300;
-  font-style:italic; color:var(--muted); line-height:1.8;
-}
-.timeline { max-width:760px; margin:0 auto; position:relative; }
-.timeline::before {
-  content:''; position:absolute; left:50%; top:0; bottom:0;
-  width:1px; background:linear-gradient(to bottom, transparent, var(--linen) 10%, var(--linen) 90%, transparent);
-  transform:translateX(-50%);
-}
-.tl-item {
-  display:grid; grid-template-columns:1fr 60px 1fr;
-  gap:0; margin-bottom:64px; align-items:start;
-  opacity:0; transform:translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  will-change: opacity, transform;
-}
-.tl-item.vis { opacity:1; transform:translateY(0); }
-.tl-item:nth-child(even) .tl-content { grid-column:1; text-align:right; }
-.tl-item:nth-child(even) .tl-empty { grid-column:3; }
-.tl-item:nth-child(odd) .tl-empty { grid-column:1; }
-.tl-item:nth-child(odd) .tl-content { grid-column:3; }
-.tl-dot-wrap {
-  grid-column:2; display:flex; align-items:center; justify-content:center;
-  padding-top:6px; position:relative; z-index:2;
-}
-.tl-dot {
-  width:12px; height:12px; border-radius:50%;
-  background:var(--gold); border:3px solid var(--ivory);
-  box-shadow:0 0 0 1px var(--gold-l);
-}
-.tl-content { padding:0 32px; }
-.tl-year {
-  font-family:var(--sans); font-size:10px; font-weight:400;
-  letter-spacing:3px; text-transform:uppercase; color:var(--gold);
-  margin-bottom:8px; display:block;
-}
-.tl-title {
-  font-family:var(--serif); font-size:22px; font-weight:400;
-  font-style:italic; color:var(--warm); margin-bottom:8px;
-}
-.tl-desc { font-size:13px; font-weight:300; color:var(--muted); line-height:1.7; }
-
-/* ─── EVENTS ─── */
-#events { padding:120px 0; background:var(--ivory-d); }
-/* events-grid replaced by events-wrap system */
-.event-card {
-  background:var(--ivory-d); padding:48px 36px;
-  position:relative; overflow:hidden;
-  transition:background 0.4s;
-}
-.event-card:hover { background:var(--white); }
-.event-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:2px;
-  background:linear-gradient(90deg, transparent, var(--gold), transparent);
-  transform:scaleX(0); transform-origin:center;
-  transition:transform 0.5s ease;
-}
-.event-card:hover::before { transform:scaleX(1); }
-.ev-num {
-  font-family:var(--serif); font-size:72px; font-weight:300;
-  color:rgba(184,154,106,0.12); line-height:1;
-  position:absolute; top:20px; right:24px;
-}
-.ev-date {
-  font-family:var(--sans); font-size:10px; font-weight:400;
-  letter-spacing:3px; text-transform:uppercase; color:var(--gold);
-  margin-bottom:20px; display:block;
-}
-.ev-title {
-  font-family:var(--serif); font-size:26px; font-weight:400;
-  font-style:italic; color:var(--warm); margin-bottom:16px;
-}
-.ev-time {
-  font-family:var(--sans); font-size:12px; font-weight:300;
-  letter-spacing:1px; color:var(--muted); margin-bottom:12px;
-}
-.ev-place {
-  font-family:var(--sans); font-size:12px; font-weight:300;
-  color:var(--muted); line-height:1.8;
-}
-.ev-place strong { color:var(--warm); font-weight:500; display:block; }
-.event-card.featured {
-  background:var(--charcoal);
-}
-.event-card.featured:hover { background:#2a2a2a; }
-.event-card.featured .ev-num { color:rgba(184,154,106,0.08); }
-.event-card.featured .ev-date { color:var(--gold-l); }
-.event-card.featured .ev-title { color:var(--white); }
-.event-card.featured .ev-time { color:rgba(255,255,255,0.4); }
-.event-card.featured .ev-place { color:rgba(255,255,255,0.4); }
-.event-card.featured .ev-place strong { color:rgba(255,255,255,0.7); }
-.ev-badge {
-  display:inline-block; margin-top:20px;
-  padding:6px 16px; border:1px solid rgba(184,154,106,0.4);
-  font-size:9px; letter-spacing:3px; text-transform:uppercase;
-  color:var(--gold); font-family:var(--sans);
-}
-.event-card.featured .ev-badge { border-color:rgba(184,154,106,0.3); }
-
-/* ─── SCHEDULE ─── */
-#schedule { padding:120px 0; background:var(--white); }
-.sched-table { width:100%; border-collapse:collapse; }
-.sched-table thead tr {
-  border-bottom: 2px solid var(--linen);
-}
-.sched-table th {
-  font-family:var(--sans); font-size:9px; font-weight:500;
-  letter-spacing:4px; text-transform:uppercase; color:var(--gold);
-  padding:0 24px 20px; text-align:left;
-}
-.sched-table td {
-  padding:20px 24px; font-size:14px; font-weight:300;
-  border-bottom:1px solid var(--ivory-d); color:var(--warm);
-  vertical-align:top;
-}
-.sched-table tr:last-child td { border-bottom:none; }
-.sched-table .main-row td {
-  background:var(--ivory-d); font-weight:400;
-  border-bottom: none;
-}
-.sched-table .main-row td:first-child {
-  border-left:2px solid var(--gold);
-}
-.sched-event-name { font-family:var(--serif); font-size:16px; font-style:italic; color:var(--warm); }
-.sched-event-detail { font-size:12px; color:var(--muted); margin-top:4px; }
-
-/* ─── VENUE / LOCATION ─── */
-#location { padding:120px 0; background:var(--linen); }
-/* loc-grid defined below in new section */
-.loc-card {
-  background:var(--white); padding:44px 32px;
-  position:relative; overflow:hidden;
-  transition:transform 0.4s, box-shadow 0.4s;
-}
-.loc-card:hover { transform:translateY(-6px); box-shadow:0 24px 60px rgba(0,0,0,0.06); }
-.loc-accent {
-  width:32px; height:2px; background:var(--gold); margin-bottom:28px;
-}
-.loc-type {
-  font-family:var(--sans); font-size:9px; font-weight:400;
-  letter-spacing:4px; text-transform:uppercase; color:var(--gold);
-  margin-bottom:12px; display:block;
-}
-.loc-name {
-  font-family:var(--serif); font-size:22px; font-style:italic;
-  font-weight:400; color:var(--warm); margin-bottom:20px;
-}
-.loc-addr {
-  font-size:13px; font-weight:300; color:var(--muted);
-  line-height:2; margin-bottom:28px;
-}
-.loc-btn {
-  display:inline-flex; align-items:center; gap:8px;
-  font-family:var(--sans); font-size:10px; font-weight:400;
-  letter-spacing:2px; text-transform:uppercase;
-  color:var(--gold); text-decoration:none;
-  border-bottom:1px solid rgba(184,154,106,0.4);
-  padding-bottom:4px; transition: all 0.3s;
-}
-.loc-btn:hover { color:var(--gold-d); border-color:var(--gold-d); }
-
-/* ─── QR SECTION ─── */
-#navigation { padding:120px 0; background:var(--charcoal); }
-#navigation .eyebrow { color:var(--gold-l); }
-#navigation .heading { color:var(--white); }
-#navigation .rule { opacity:0.3; }
-.qr-grid {
-  display:flex; justify-content:center; gap:32px; flex-wrap:wrap;
-}
-.qr-card {
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(184,154,106,0.2);
-  padding:40px 32px; text-align:center; width:260px;
-  transition:border-color 0.3s, background 0.3s;
-}
-.qr-card:hover { border-color:rgba(184,154,106,0.5); background:rgba(255,255,255,0.06); }
-.qr-card canvas { display:block; margin:20px auto; }
-.qr-label {
-  font-family:var(--serif); font-size:18px; font-style:italic;
-  color:var(--white); margin-bottom:6px;
-}
-.qr-sub { font-size:11px; font-weight:300; color:rgba(255,255,255,0.4); margin-bottom:4px; }
-.qr-scan-hint {
-  font-size:9px; letter-spacing:3px; text-transform:uppercase;
-  color:var(--gold); margin-top:16px; display:block;
-}
-.qr-maps-link {
-  display:inline-block; margin-top:16px;
-  padding:9px 22px; border:1px solid rgba(184,154,106,0.3);
-  font-size:9px; letter-spacing:2px; text-transform:uppercase;
-  color:var(--gold-l); text-decoration:none; font-family:var(--sans);
-  transition:all 0.3s;
-}
-.qr-maps-link:hover { background:var(--gold); color:var(--charcoal); border-color:var(--gold); }
-
-/* ─── FAMILY ─── */
-#family { padding:120px 0; background:var(--ivory); }
-.family-intro {
-  text-align:center; margin-bottom:60px;
-  font-family:var(--serif); font-size:18px; font-style:italic;
-  color:var(--muted);
-}
-.family-grid {
-  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-  background:var(--linen); border:1px solid var(--linen);
-  margin-bottom:80px;
-}
-.fam-card {
-  background:var(--ivory); padding:36px 24px; text-align:center;
-  transition:background 0.3s;
-}
-.fam-card:hover { background:var(--white); }
-.fam-initial {
-  width:52px; height:52px; border-radius:50%;
-  background:var(--linen);
-  border:1px solid rgba(184,154,106,0.3);
-  display:flex; align-items:center; justify-content:center;
-  margin:0 auto 20px;
-  font-family:var(--serif); font-size:20px; font-style:italic;
-  color:var(--gold);
-}
-.fam-name {
-  font-family:var(--serif); font-size:17px; font-style:italic;
-  color:var(--warm); margin-bottom:4px;
-}
-.fam-role {
-  font-family:var(--sans); font-size:9px; font-weight:400;
-  letter-spacing:3px; text-transform:uppercase; color:var(--gold);
-  margin-bottom:6px;
-}
-.fam-spouse { font-size:12px; font-weight:300; color:var(--muted); }
-.poem-block {
-  max-width:640px; margin:0 auto; text-align:center;
-  padding:56px 40px; border:1px solid var(--linen); position:relative;
-}
-.poem-block::before {
-  content:''; position:absolute; top:-1px; left:50%;
-  transform:translateX(-50%); width:60px; height:2px;
-  background:var(--gold);
-}
-.poem-quote {
-  font-family:var(--serif); font-size:22px; font-weight:300;
-  font-style:italic; color:var(--warm); line-height:1.8;
-  margin-bottom:24px;
-}
-.poem-attr {
-  font-family:var(--sans); font-size:11px; font-weight:300;
-  letter-spacing:2px; text-transform:uppercase; color:var(--gold);
-}
-
-/* ─── RSVP ─── */
-#rsvp { padding:120px 0; background:var(--ivory-d); }
-.rsvp-inner {
-  max-width:600px; margin:0 auto;
-}
-.rsvp-note {
-  text-align:center; margin-bottom:48px;
-  font-family:var(--serif); font-size:16px; font-style:italic;
-  color:var(--muted); line-height:1.7;
-}
-.form-group { margin-bottom:16px; }
-.form-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-label {
-  display:block; font-family:var(--sans); font-size:9px;
-  font-weight:400; letter-spacing:3px; text-transform:uppercase;
-  color:var(--muted); margin-bottom:8px;
-}
-input, select, textarea {
-  width:100%; padding:14px 18px;
-  background:var(--white); border:1px solid var(--linen);
-  font-family:var(--sans); font-size:14px; font-weight:300;
-  color:var(--warm); outline:none;
-  transition:border-color 0.3s;
-  -webkit-appearance:none;
-}
-input:focus, select:focus, textarea:focus {
-  border-color:var(--gold);
-}
-input::placeholder, textarea::placeholder { color:rgba(138,114,80,0.4); }
-textarea { resize:vertical; min-height:100px; }
-.form-btn {
-  width:100%; padding:16px;
-  background:var(--charcoal); color:var(--white);
-  border:none; font-family:var(--sans); font-size:10px;
-  font-weight:400; letter-spacing:4px; text-transform:uppercase;
-  cursor:pointer; transition:all 0.4s; margin-top:8px;
-  touch-action:manipulation; -webkit-tap-highlight-color:transparent;
-}
-.form-btn:hover { background:var(--gold); }
-.rsvp-success {
-  display:none; text-align:center; padding:60px 40px;
-  border:1px solid var(--linen);
-}
-.rsvp-success h3 {
-  font-family:var(--serif); font-size:32px; font-style:italic;
-  color:var(--warm); margin-bottom:12px;
-}
-.rsvp-success p { font-size:14px; font-weight:300; color:var(--muted); }
-.rsvp-contact {
-  text-align:center; margin-top:40px; padding-top:40px;
-  border-top:1px solid var(--linen);
-  font-size:12px; font-weight:300; color:var(--muted); line-height:2;
-}
-
-/* ─── FOOTER ─── */
-footer {
-  background:var(--charcoal); padding:80px 40px 48px;
-  text-align:center;
-}
-.footer-script {
-  font-family:var(--script); font-size:56px; color:var(--gold);
-  margin-bottom:8px; display:block;
-}
-.footer-date {
-  font-family:var(--sans); font-size:10px; font-weight:300;
-  letter-spacing:5px; text-transform:uppercase;
-  color:rgba(255,255,255,0.3); margin-bottom:48px;
-}
-.footer-contacts {
-  display:flex; justify-content:center; gap:64px; flex-wrap:wrap;
-  margin-bottom:48px;
-}
-.footer-item { text-align:center; }
-.footer-item-label {
-  font-family:var(--sans); font-size:9px; font-weight:400;
-  letter-spacing:3px; text-transform:uppercase; color:var(--gold);
-  margin-bottom:8px;
-}
-.footer-item-val {
-  font-size:13px; font-weight:300; color:rgba(255,255,255,0.5);
-  line-height:1.8;
-}
-.footer-rule {
-  width:40px; height:1px; background:rgba(184,154,106,0.3);
-  margin:32px auto;
-}
-.footer-copy {
-  font-family:var(--sans); font-size:10px; font-weight:300;
-  letter-spacing:1px; color:rgba(255,255,255,0.2);
-}
-
-/* ─── GALLERY ─── */
-#gallery { padding:120px 0; background:var(--charcoal); }
-#gallery .eyebrow { color:var(--gold-l); }
-#gallery .heading { color:var(--white); }
-#gallery .rule { opacity:0.3; }
-.gallery-grid {
-  display:grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 260px 260px;
-  gap:4px; max-width:1160px; margin:0 auto;
-}
-.gallery-item { position:relative; overflow:hidden; cursor:pointer; }
-.gallery-item:first-child { grid-row: 1 / 3; }
-.gallery-pattern { width:100%; height:100%; display:flex; align-items:center; justify-content:center; transition:transform 0.6s ease; position:relative; }
-.gallery-item:hover .gallery-pattern { transform:scale(1.05); }
-.gallery-overlay { position:absolute; inset:0; background:rgba(28,28,28,0); transition:background 0.4s; display:flex; align-items:flex-end; padding:20px; }
-.gallery-item:hover .gallery-overlay { background:rgba(28,28,28,0.25); }
-.gallery-lbl { font-family:var(--serif); font-size:15px; font-style:italic; color:rgba(255,255,255,0); transition:color 0.4s; }
-.gallery-item:hover .gallery-lbl { color:rgba(255,255,255,0.8); }
-.gp1 { background:linear-gradient(135deg,#2C1810,#5A3020); }
-.gp2 { background:linear-gradient(135deg,#1A2030,#2A4060); }
-.gp3 { background:linear-gradient(135deg,#1C2A1C,#2A4A2A); }
-.gp4 { background:linear-gradient(135deg,#2A1A2C,#4A2A55); }
-.gp5 { background:linear-gradient(135deg,#2C2010,#504030); }
-.gallery-svg { position:absolute; inset:0; width:100%; height:100%; opacity:0.12; }
-.gallery-center-text { position:relative; z-index:2; text-align:center; }
-.gallery-center-icon { font-size:40px; display:block; margin-bottom:8px; }
-.gallery-center-label { font-family:var(--serif); font-size:14px; font-style:italic; color:rgba(255,255,255,0.5); }
-.gallery-note { text-align:center; margin-top:20px; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.2); }
-
-/* ─── FAMILY TWO COLUMNS ─── */
-.family-two-col { display:grid; grid-template-columns:1fr 1fr; gap:48px; max-width:1000px; margin:0 auto 80px; }
-.family-col-head { text-align:center; margin-bottom:24px; padding-bottom:24px; border-bottom:1px solid var(--linen); }
-.family-col-title { font-family:var(--serif); font-size:22px; font-style:italic; color:var(--warm); margin-bottom:6px; }
-.family-col-parents { font-size:13px; font-weight:300; color:var(--muted); line-height:1.8; }
-.family-col-tag { font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:8px; }
-.family-mini-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--linen); border:1px solid var(--linen); }
-.fam-mini-card { background:var(--ivory); padding:20px 16px; text-align:center; transition:background 0.3s; }
-.fam-mini-card:hover { background:var(--white); }
-.fam-mini-init { width:40px; height:40px; border-radius:50%; background:var(--linen); border:1px solid rgba(184,154,106,0.3); display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-family:var(--serif); font-size:16px; font-style:italic; color:var(--gold); }
-.fam-mini-name { font-family:var(--serif); font-size:14px; font-style:italic; color:var(--warm); margin-bottom:2px; }
-.fam-mini-role { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); }
-
-/* ─── GUEST INFO / DRESS CODE ─── */
-#guestinfo { padding:80px 0; background:var(--linen); }
-.gi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(184,154,106,0.2); border:1px solid rgba(184,154,106,0.2); max-width:900px; margin:0 auto; }
-.gi-card { background:var(--white); padding:40px 28px; text-align:center; transition:background 0.3s, transform 0.3s; }
-.gi-card:hover { background:var(--ivory); transform:translateY(-4px); }
-.gi-icon { font-size:30px; margin-bottom:16px; display:block; }
-.gi-title { font-family:var(--serif); font-size:18px; font-style:italic; color:var(--warm); margin-bottom:10px; }
-.gi-text { font-size:13px; font-weight:300; color:var(--muted); line-height:1.8; }
-
-/* ─── WHATSAPP + SCROLL TOP ─── */
-.fab-wrap { position:fixed; bottom:28px; right:28px; z-index:900; display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
-.wa-btn { width:52px; height:52px; border-radius:50%; background:#25D366; color:white; display:flex; align-items:center; justify-content:center; text-decoration:none; box-shadow:0 4px 20px rgba(37,211,102,0.4); transition:all 0.3s; touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
-.wa-btn:hover { background:#1ebe5d; transform:translateY(-3px); box-shadow:0 8px 28px rgba(37,211,102,0.5); }
-.wa-btn svg { width:28px; height:28px; fill:white; }
-.scroll-top { width:44px; height:44px; border-radius:50%; background:var(--charcoal); color:var(--gold); display:flex; align-items:center; justify-content:center; cursor:pointer; border:1px solid rgba(184,154,106,0.3); font-size:18px; transition:all 0.3s; box-shadow:0 4px 16px rgba(0,0,0,0.2); opacity:0; pointer-events:none; }
-.scroll-top.show { opacity:1; pointer-events:all; }
-.scroll-top:hover { background:var(--gold); color:var(--charcoal); }
-
-/* ─── EVENTS FIX - 2 ROW LAYOUT ─── */
-.events-wrap { max-width:1160px; margin:0 auto; display:flex; flex-direction:column; gap:1px; background:var(--linen); border:1px solid var(--linen); }
-.events-row { display:grid; gap:1px; background:var(--linen); }
-.events-row.r3 { grid-template-columns:repeat(3,1fr); }
-.events-row.r2 { grid-template-columns:1fr 1fr; }
-
-/* ─── LOCATION 2x2 GRID ─── */
-.loc-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:900px; margin:0 auto; }
-
-/* ─── MOBILE NAV OVERLAY ─── */
-.mobile-nav {
-  display:none; position:fixed; inset:0; z-index:999;
-  background:var(--ivory); flex-direction:column;
-  align-items:center; justify-content:center; gap:32px;
-}
-.mobile-nav.open { display:flex; }
-.mobile-nav a {
-  font-family:var(--serif); font-size:32px; font-style:italic;
-  color:var(--warm); text-decoration:none;
-  transition:color 0.3s;
-}
-.mobile-nav a:hover { color:var(--gold); }
-
-/* ─── REVEAL ─── */
-.reveal {
-  opacity:0; transform:translateY(28px);
-  transition:opacity 0.8s ease, transform 0.8s ease;
-  will-change: opacity, transform;
-}
-.reveal.vis { opacity:1; transform:translateY(0); }
-.reveal-delay-1 { transition-delay:0.1s; }
-.reveal-delay-2 { transition-delay:0.2s; }
-.reveal-delay-3 { transition-delay:0.3s; }
-.reveal-delay-4 { transition-delay:0.4s; }
-
-/* ─── RESPONSIVE ─── */
-@media (max-width:900px) {
-  #hero { grid-template-columns:1fr; }
-  .hero-right { display:none; }
-  .hero-label, .hero-tagline, .hero-detail { opacity:1 !important; transform:none !important; animation:none !important; }
-  .hero-left { height:100vh; }
-  .events-row.r3 { grid-template-columns:1fr; }
-  .events-row.r2 { grid-template-columns:1fr; }
-  .loc-grid { grid-template-columns:1fr; }
-  .family-grid { grid-template-columns:1fr 1fr; }
-  .family-two-col { grid-template-columns:1fr; gap:40px; }
-  .family-mini-grid { grid-template-columns:1fr 1fr; }
-  .gi-grid { grid-template-columns:1fr; }
-  .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
-  .gallery-item:first-child { grid-row:auto; }
-  nav { padding:20px 24px; }
-  nav.solid { padding:14px 24px; }
-  .nav-links { display:none; }
-  .hamburger { display:flex; }
-  .section-wrap { padding:0 24px; }
-  .cd-unit { padding:0 20px; }
-  .cd-num { font-size:52px; }
-  .form-row-2 { grid-template-columns:1fr; }
-  .timeline::before { left:24px; }
-  .tl-item { grid-template-columns:48px 1fr; }
-  .tl-item:nth-child(even) .tl-content,
-  .tl-item:nth-child(odd) .tl-content { grid-column:2; text-align:left; }
-  .tl-item .tl-empty { display:none; }
-  .tl-dot-wrap { grid-column:1; }
-  #countdown .heading { font-size:28px; }
-  .fab-wrap { bottom:16px; right:16px; }
-}
-@media (max-width:600px) {
-  .family-grid { grid-template-columns:1fr; }
-  .cd-num { font-size:40px; }
-  .cd-unit { padding:0 12px; }
-  .family-mini-grid { grid-template-columns:1fr; }
-  .qr-grid { flex-direction:column; align-items:center; }
-  .footer-contacts { gap:32px; }
-  .gallery-grid { grid-template-columns:1fr; }
-}
-
-/* ── PREFERS REDUCED MOTION (accessibility + battery saving) ── */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  html { scroll-behavior: auto; }
-  .reveal, .tl-item { opacity:1; transform:none; }
-  .rule { width:60px; }
-  #loader { display:none; }
-}
-
-/* ── TOUCH DEVICE OPTIMIZATIONS ── */
-@media (hover: none) and (pointer: coarse) {
-  .event-card:active { background: var(--white); }
-  .event-card:active::before { transform: scaleX(1); }
-  .event-card.featured:active { background: #2a2a2a; }
-  .loc-card:active { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-  .gi-card:active { background: var(--ivory); transform: translateY(-2px); }
-  .fam-card:active { background: var(--white); }
-  .fam-mini-card:active { background: var(--white); }
-  .wa-btn:active { background: #1ebe5d; transform: scale(0.96); }
-  .scroll-top:active { background: var(--gold); color: var(--charcoal); }
-  .hero-cta:active { background: var(--gold); color: var(--charcoal); border-color: var(--gold); }
-  .form-btn:active { background: var(--gold); }
-  .nav-rsvp:active { background: var(--gold) !important; color: var(--white) !important; }
-}
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- PROGRESS BAR -->
-<div id="progress"></div>
-
-<!-- SPLASH LOADER -->
-<div id="loader">
-  <span class="loader-script">Tejbhan & Dolly</span>
-  <p class="loader-sub">20 · April · 2026</p>
-  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
-</div>
-
-<!-- FLOATING BUTTONS -->
-<div class="fab-wrap">
-  <a class="wa-btn" id="waBtn" href="#" target="_blank" title="Share on WhatsApp">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
-  <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
-</div>
-
-<!-- CURSOR -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <a href="#countdown" onclick="closeMobile()">The Date</a>
-  <a href="#story" onclick="closeMobile()">Our Story</a>
-  <a href="#events" onclick="closeMobile()">Events</a>
-  <a href="#location" onclick="closeMobile()">Venue</a>
-  <a href="#navigation" onclick="closeMobile()">Navigation</a>
-  <a href="#family" onclick="closeMobile()">Family</a>
-  <a href="#rsvp" onclick="closeMobile()">RSVP</a>
-</div>
-
-<!-- NAVIGATION -->
-<nav id="navbar">
-  <a href="#hero" class="nav-logo">T & D</a>
-  <ul class="nav-links">
-    <li><a href="#countdown">The Date</a></li>
-    <li><a href="#story">Our Story</a></li>
-    <li><a href="#events">Events</a></li>
-    <li><a href="#location">Venue</a></li>
-    <li><a href="#family">Family</a></li>
-    <li><a href="#rsvp" class="nav-rsvp">RSVP</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleMobile()">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-left">
-    <canvas id="particles"></canvas>
-    <div class="hero-left-bg"></div>
-    <div class="hero-grid-pattern"></div>
-    <div class="hero-left-content">
-      <div class="hero-eyebrow">The Wedding of</div>
-      <span class="hero-script">Tejbhan</span>
-      <span class="hero-script-amp">&</span>
-      <span class="hero-script">Dolly</span>
-      <p class="hero-date-line">Monday · 20 April 2026 · Nagpur</p>
-      <a href="#rsvp" class="hero-cta">Confirm Attendance</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-right-decor"></div>
-    <span class="hero-label">Save the Date</span>
-    <h2 class="hero-tagline">Two families,<br>one joyful<br>beginning.</h2>
-    <p class="hero-detail">
-      Monday, 20th April 2026<br>
-      Royal Wedding Lawn, Nagpur<br>
-      Ceremony begins at 8:00 PM
-    </p>
-    <div class="hero-scroll">Scroll</div>
-  </div>
-</section>
-
-<!-- COUNTDOWN -->
-<section id="countdown">
-  <span class="eyebrow">Counting Down</span>
-  <h2 class="heading">Until We Say "I Do"</h2>
-  <div class="cd-grid">
-    <div class="cd-unit">
-      <span class="cd-num" id="cd-d">00</span>
-      <span class="cd-lbl">Days</span>
-    </div>
-    <div class="cd-unit">
-      <span class="cd-num" id="cd-h">00</span>
-      <span class="cd-lbl">Hours</span>
-    </div>
-    <div class="cd-unit">
-      <span class="cd-num" id="cd-m">00</span>
-      <span class="cd-lbl">Minutes</span>
-    </div>
-    <div class="cd-unit">
-      <span class="cd-num" id="cd-s">00</span>
-      <span class="cd-lbl">Seconds</span>
-    </div>
-  </div>
-</section>
-
-<!-- STORY -->
-<div class="wave-divider" style="background:var(--charcoal);">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#FAF7F2"/>
-  </svg>
-</div>
-<section id="story">
-  <div class="section-wrap">
-    <span class="eyebrow">Our Journey</span>
-    <h2 class="heading">The Story So Far</h2>
-    <div class="rule"></div>
-    <div class="story-intro reveal">
-      <p>"Two lives, two families brought together by fate — and now, forever bound by love, trust, and the blessings of those who matter most."</p>
-    </div>
-    <div class="timeline">
-
-  <div class="tl-item">
-    <div class="tl-empty"></div>
-    <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-    <div class="tl-content">
-      <span class="tl-year">May 2019</span>
-      <h3 class="tl-title">The First Meeting</h3>
-      <p class="tl-desc">
-        Tejbhan and Dolly first met, and in that simple moment a spark quietly ignited — the beginning of a beautiful love story.
-      </p>
-    </div>
+  <!-- ambient background -->
+  <div class="ambient" aria-hidden="true">
+    <span class="orb orb--1"></span>
+    <span class="orb orb--2"></span>
+    <span class="orb orb--3"></span>
+    <div class="grid-overlay"></div>
   </div>
 
-  <div class="tl-item">
-    <div class="tl-content">
-      <span class="tl-year">2019 – 2025</span>
-      <h3 class="tl-title">Love Grows Stronger</h3>
-      <p class="tl-desc">
-        Through every season of life — laughter, challenges, learning, and understanding — their bond grew deeper and stronger with time.
-      </p>
-    </div>
-    <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-    <div class="tl-empty"></div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-empty"></div>
-    <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-    <div class="tl-content">
-      <span class="tl-year">June 2025</span>
-      <h3 class="tl-title">Families Meet</h3>
-      <p class="tl-desc">
-        After years of love and trust, both families finally met — marking the beginning of two families becoming one.
-      </p>
-    </div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-content">
-      <span class="tl-year">26 October 2025</span>
-      <h3 class="tl-title">The Roka Ceremony</h3>
-      <p class="tl-desc">
-        Surrounded by blessings and happiness, Tejbhan and Dolly’s Roka ceremony beautifully formalized their journey together.
-      </p>
-    </div>
-    <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-    <div class="tl-empty"></div>
-  </div>
-
-  <div class="tl-item">
-    <div class="tl-empty"></div>
-    <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-    <div class="tl-content">
-      <span class="tl-year">20 April 2026</span>
-      <h3 class="tl-title">The Wedding Day ✦</h3>
-      <p class="tl-desc">
-        And now, Tejbhan and Dolly take their seven sacred vows — beginning a lifetime of love, partnership, and togetherness.
-      </p>
-    </div>
-  </div>
-
-</div>
-  </div>
-</section>
-
-<!-- EVENTS -->
-<section id="events">
-  <div class="section-wrap">
-    <span class="eyebrow reveal">Wedding Programme</span>
-    <h2 class="heading reveal">Celebrations & Ceremonies</h2>
-    <div class="rule reveal"></div>
-    <div class="events-wrap reveal">
-      <!-- Row 1: 3 cards -->
-      <div class="events-row r3">
-        <div class="event-card">
-          <span class="ev-num">01</span>
-          <span class="ev-date">Thursday · 16 April 2026</span>
-          <h3 class="ev-title">Tilak</h3>
-          <p class="ev-time">As per programme</p>
-          <p class="ev-place"><strong>Groom's Residence</strong>Sant Kabir Ward, Hinganghat</p>
-        </div>
-        <div class="event-card">
-          <span class="ev-num">02</span>
-          <span class="ev-date">Friday · 17 April 2026</span>
-          <h3 class="ev-title">Lagnabandi</h3>
-          <p class="ev-time">As per programme</p>
-          <p class="ev-place"><strong>Groom's Residence</strong>Sant Kabir Ward, Hinganghat</p>
-        </div>
-        <div class="event-card">
-          <span class="ev-num">03</span>
-          <span class="ev-date">Sunday · 19 April 2026</span>
-          <h3 class="ev-title">Haldi & Rituals</h3>
-          <p class="ev-time">As per programme</p>
-          <p class="ev-place"><strong>Groom's Residence</strong>Magarmaati · Madwa · Haldi · Hepper</p>
-        </div>
-      </div>
-      <!-- Row 2: 2 cards — main wedding + reception -->
-      <div class="events-row r2">
-        <div class="event-card featured">
-          <span class="ev-num">04</span>
-          <span class="ev-date">Monday · 20 April 2026</span>
-          <h3 class="ev-title">The Wedding</h3>
-          <p class="ev-time">Ghurchari 5 PM · Barat 6 PM · Ceremony 8 PM</p>
-          <p class="ev-place"><strong>Royal Wedding Lawn</strong>NH-7, Kamptee Road, Nagpur</p>
-          <span class="ev-badge">Main Ceremony</span>
-        </div>
-        <div class="event-card">
-          <span class="ev-num">05</span>
-          <span class="ev-date">Wednesday · 22 April 2026</span>
-          <h3 class="ev-title">Welcome Reception</h3>
-          <p class="ev-time">From 7:00 PM onwards</p>
-          <p class="ev-place"><strong>Nakshatra Celebration Lawn</strong>Hinganghat, Dist. Wardha</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="section-wrap">
-    <span class="eyebrow">Memories in the Making</span>
-    <h2 class="heading">Photo Gallery</h2>
-    <div class="rule"></div>
-    <div class="gallery-grid reveal">
-      <div class="gallery-item">
-        <div class="gallery-pattern gp1">
-          <svg class="gallery-svg" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="200" cy="300" r="180" fill="none" stroke="#B89A6A" stroke-width="0.5"/>
-            <circle cx="200" cy="300" r="140" fill="none" stroke="#B89A6A" stroke-width="0.5"/>
-            <circle cx="200" cy="300" r="100" fill="none" stroke="#B89A6A" stroke-width="0.5"/>
-            <circle cx="200" cy="300" r="60" fill="none" stroke="#B89A6A" stroke-width="0.5"/>
-            <line x1="20" y1="300" x2="380" y2="300" stroke="#B89A6A" stroke-width="0.3"/>
-            <line x1="200" y1="120" x2="200" y2="480" stroke="#B89A6A" stroke-width="0.3"/>
-            <line x1="73" y1="173" x2="327" y2="427" stroke="#B89A6A" stroke-width="0.3"/>
-            <line x1="327" y1="173" x2="73" y2="427" stroke="#B89A6A" stroke-width="0.3"/>
-          </svg>
-          <div class="gallery-center-text">
-            <span class="gallery-center-icon">💑</span>
-            <span class="gallery-center-label">Tejbhan & Dolly</span>
-          </div>
-        </div>
-        <div class="gallery-overlay"><span class="gallery-lbl">The Couple</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-pattern gp2">
-          <svg class="gallery-svg" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="10" width="180" height="240" fill="none" stroke="#B89A6A" stroke-width="0.5"/>
-            <rect x="25" y="25" width="150" height="210" fill="none" stroke="#B89A6A" stroke-width="0.3"/>
-            <line x1="10" y1="130" x2="190" y2="130" stroke="#B89A6A" stroke-width="0.3"/>
-            <line x1="100" y1="10" x2="100" y2="250" stroke="#B89A6A" stroke-width="0.3"/>
-          </svg>
-          <div class="gallery-center-text">
-            <span class="gallery-center-icon">🌸</span>
-            <span class="gallery-center-label">Haldi Ceremony</span>
-          </div>
-        </div>
-        <div class="gallery-overlay"><span class="gallery-lbl">Haldi</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-pattern gp3">
-          <svg class="gallery-svg" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="100,20 180,70 180,190 100,240 20,190 20,70" fill="none" stroke="#B89A6A" stroke-width="0.5"/>
-            <polygon points="100,50 155,82 155,178 100,210 45,178 45,82" fill="none" stroke="#B89A6A" stroke-width="0.3"/>
-          </svg>
-          <div class="gallery-center-text">
-            <span class="gallery-center-icon">🪔</span>
-            <span class="gallery-center-label">Tilak</span>
-          </div>
-        </div>
-        <div class="gallery-overlay"><span class="gallery-lbl">Tilak</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-pattern gp4">
-          <svg class="gallery-svg" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="130" r="90" fill="none" stroke="#B89A6A" stroke-width="0.5"/>
-            <circle cx="100" cy="130" r="60" fill="none" stroke="#B89A6A" stroke-width="0.3"/>
-            <circle cx="100" cy="130" r="30" fill="none" stroke="#B89A6A" stroke-width="0.3"/>
-          </svg>
-          <div class="gallery-center-text">
-            <span class="gallery-center-icon">💍</span>
-            <span class="gallery-center-label">The Wedding</span>
-          </div>
-        </div>
-        <div class="gallery-overlay"><span class="gallery-lbl">Wedding</span></div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-pattern gp5">
-          <svg class="gallery-svg" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="0" x2="200" y2="260" stroke="#B89A6A" stroke-width="0.4"/>
-            <line x1="200" y1="0" x2="0" y2="260" stroke="#B89A6A" stroke-width="0.4"/>
-            <rect x="40" y="52" width="120" height="156" fill="none" stroke="#B89A6A" stroke-width="0.3"/>
-          </svg>
-          <div class="gallery-center-text">
-            <span class="gallery-center-icon">👨‍👩‍👧‍👦</span>
-            <span class="gallery-center-label">Family</span>
-          </div>
-        </div>
-        <div class="gallery-overlay"><span class="gallery-lbl">Family</span></div>
-      </div>
-    </div>
-    <p class="gallery-note">📸 Photo gallery will be updated after the wedding · 20 April 2026</p>
-  </div>
-</section>
-
-<!-- SCHEDULE TABLE -->
-<section id="schedule">
-  <div class="section-wrap">
-    <span class="eyebrow reveal">Full Programme</span>
-    <h2 class="heading reveal">Wedding Schedule</h2>
-    <div class="rule reveal"></div>
-    <div class="reveal" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
-      <table class="sched-table">
-        <thead>
-          <tr>
-            <th>Day & Date</th>
-            <th>Time</th>
-            <th>Event</th>
-            <th>Venue</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><div class="sched-event-name">Thursday, 16 Apr</div></td>
-            <td>As scheduled</td>
-            <td>Tilak</td>
-            <td>Groom's Residence, Hinganghat</td>
-          </tr>
-          <tr>
-            <td><div class="sched-event-name">Friday, 17 Apr</div></td>
-            <td>As scheduled</td>
-            <td>Lagnabandi</td>
-            <td>Groom's Residence, Hinganghat</td>
-          </tr>
-          <tr>
-            <td><div class="sched-event-name">Sunday, 19 Apr</div></td>
-            <td>As scheduled</td>
-            <td>Magarmaati · Madwa · Haldi · Ghee Chadhana</td>
-            <td>Groom's Residence, Hinganghat</td>
-          </tr>
-          <tr class="main-row">
-            <td><div class="sched-event-name">Monday, 20 Apr</div></td>
-            <td><strong>5 PM — 8 PM</strong></td>
-            <td><strong>Ghurchari → Barat → Shubh Vivah</strong><div class="sched-event-detail">Barat reassembles near Tivoli Grand at 7 PM</div></td>
-            <td><strong>Royal Wedding Lawn, Nagpur</strong></td>
-          </tr>
-          <tr>
-            <td><div class="sched-event-name">Wednesday, 22 Apr</div></td>
-            <td>7:00 PM onwards</td>
-            <td>Welcome Reception</td>
-            <td>Nakshatra Celebration Lawn, Hinganghat</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- GUEST INFO -->
-<section id="guestinfo">
-  <div class="section-wrap">
-    <span class="eyebrow reveal">For Our Guests</span>
-    <h2 class="heading reveal">Good to Know</h2>
-    <div class="rule reveal"></div>
-    <div class="gi-grid reveal">
-      <div class="gi-card">
-        <span class="gi-icon">👗</span>
-        <h3 class="gi-title">Dress Code</h3>
-        <p class="gi-text">Traditional Indian ethnic wear is warmly encouraged. Think vibrant sarees, lehengas, sherwanis & kurtas. Formal western attire is equally welcome.</p>
-      </div>
-      <div class="gi-card">
-        <span class="gi-icon">🚗</span>
-        <h3 class="gi-title">Parking</h3>
-        <p class="gi-text">Ample parking is available at both venues. Royal Wedding Lawn has dedicated parking on NH-7. Please carpool where possible for convenience.</p>
-      </div>
-      <div class="gi-card">
-        <span class="gi-icon">🏨</span>
-        <h3 class="gi-title">Accommodation</h3>
-        <p class="gi-text">Several hotels are available near Royal Wedding Lawn on Kamptee Road, Nagpur. Please book early. Contact us for recommendations.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LOCATION -->
-<section id="location">
-  <div class="section-wrap">
-    <span class="eyebrow reveal">Find Us</span>
-    <h2 class="heading reveal">Venue & Location</h2>
-    <div class="rule reveal"></div>
-    <div class="loc-grid reveal">
-      <div class="loc-card">
-        <div class="loc-accent"></div>
-        <span class="loc-type">Main Ceremony · 20 April 2026</span>
-        <h3 class="loc-name">Royal Wedding Lawn</h3>
-        <p class="loc-addr">
-          National Highway 7<br>
-          Opp. All India Radio<br>
-          Near MMRDA Petrol Pump<br>
-          Kamptee Road, Nagpur<br>
-          Maharashtra — 441002
-        </p>
-        <a class="loc-btn" href="https://www.google.com/maps/place/?q=place_id:ChIJjXmwbafH1DsRpclfK3y6Cr8" target="_blank">
-          Get Directions →
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="top">
+    <div class="nav__inner glass">
+      <a href="#top" class="nav__logo" aria-label="Back to top">
+        <span class="nav__logo-mark">TS</span>
+        <span class="nav__logo-text">Tejbhan&nbsp;Sahu</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#impact">Impact</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="assets/resume.pdf" class="btn btn--neu btn--sm" download>
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 15.5 7 10.5l1.4-1.4 2.6 2.6V3h2v8.7l2.6-2.6L17 10.5l-5 5ZM5 19h14v2H5v-2Z"/></svg>
+          Resume
         </a>
-      </div>
-      <div class="loc-card">
-        <div class="loc-accent"></div>
-        <span class="loc-type">Welcome Reception · 22 April 2026</span>
-        <h3 class="loc-name">Nakshatra Celebration Lawn</h3>
-        <p class="loc-addr">
-          Nagpur Road<br>
-          Near Reliance Petrol Pump<br>
-          Hinganghat<br>
-          Dist. Wardha, Maharashtra<br>
-          Pin — 442301
-        </p>
-        <a class="loc-btn" href="https://www.google.com/maps/place/?q=place_id:ChIJJeXViZFl0zsR00HHCe8y5jc" target="_blank">
-          Get Directions →
-        </a>
-      </div>
-      <div class="loc-card">
-        <div class="loc-accent"></div>
-        <span class="loc-type">Groom's Family Residence</span>
-        <h3 class="loc-name">Sahu Family, Hinganghat</h3>
-        <p class="loc-addr">
-          Sant Kabir Ward<br>
-          Chitrakoot Layout<br>
-          Near Railway Station<br>
-          Hinganghat, Dist. Wardha<br>
-          Maharashtra — 442301
-        </p>
-        <p style="font-size:13px; font-weight:300; color:var(--gold); line-height:2;">
-          📞 <a href="tel:+919765136450">+91 97651 36450</a><br><a href="tel:+917666852564">+91 76668 52564</a>
-        </p>
-      </div>
-      <div class="loc-card">
-        <div class="loc-accent"></div>
-        <span class="loc-type">Bride's Family Residence</span>
-        <h3 class="loc-name">Chauhan Family, Nagpur</h3>
-        <p class="loc-addr">
-          33/C, Kamla Niwas<br>
-          New Diamond Nagar<br>
-          New Sahakar Nagar, Kharabi<br>
-          Nagpur, Maharashtra<br>
-          Pin — 440024
-        </p>
-        <p style="font-size:13px; font-weight:300; color:var(--muted); line-height:2;">
-          Late Shri Rajesh Chauhan<br>
-          Smt. Kamal Chauhan
-        </p>
+        <button class="theme-toggle btn--neu" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12.1 3a7 7 0 1 0 8.9 8.9A9 9 0 1 1 12.1 3Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-6 1.8 2.6L12 3l-1.8.6L12 1Zm0 22-1.8-2.6L12 21l1.8-.6L12 23ZM1 12l2.6-1.8L3 12l.6 1.8L1 12Zm22 0-2.6 1.8L21 12l-.6-1.8L23 12ZM4.2 4.2l3 .9-.9-3-2.1 2.1Zm13.6 13.6 3 .9-.9-3-2.1 2.1ZM19.8 4.2l-2.1-2.1-.9 3 3-.9ZM6.2 17.8l-2.1-2.1-.9 3 3-.9Z"/></svg>
+        </button>
+        <button class="nav__burger btn--neu" id="navBurger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- QR NAVIGATION -->
-<section id="navigation">
-  <div class="section-wrap">
-    <span class="eyebrow">Navigation</span>
-    <h2 class="heading">Scan to Navigate</h2>
-    <p class="subheading" style="color:rgba(255,255,255,0.35);">Scan the QR code with your phone to open Google Maps directions</p>
-    <div class="rule"></div>
-    <div class="qr-grid reveal">
-      <div class="qr-card">
-        <span class="qr-label">Royal Wedding Lawn</span>
-        <p class="qr-sub">Kamptee Road, Nagpur</p>
-        <img id="qr1" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=https://maps.google.com/?q=Royal+Wedding+Lawn+Kamptee+Road+Nagpur" alt="QR Royal Wedding Lawn" width="200" height="200" style="display:block;margin:20px auto;border-radius:0px;">
-        <span class="qr-scan-hint">Scan with camera</span>
-        <a class="qr-maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjXmwbafH1DsRpclfK3y6Cr8" target="_blank">Open in Maps</a>
-      </div>
-      <div class="qr-card">
-        <span class="qr-label">Nakshatra Celebration Lawn</span>
-        <p class="qr-sub">Hinganghat, Wardha</p>
-        <img id="qr2" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=https://maps.google.com/?q=Nakshatra+Celebration+Lawn+Hinganghat+Wardha" alt="QR Nakshatra Lawn" width="200" height="200" style="display:block;margin:20px auto;border-radius:0px;">
-        <span class="qr-scan-hint">Scan with camera</span>
-        <a class="qr-maps-link" href="https://www.google.com/maps/place/?q=place_id:ChIJJeXViZFl0zsR00HHCe8y5jc" target="_blank">Open in Maps</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAMILY -->
-<section id="family">
-  <div class="section-wrap">
-    <span class="eyebrow reveal">With Love From</span>
-    <h2 class="heading reveal">Our Families</h2>
-    <div class="rule reveal"></div>
-
-    <div class="family-two-col reveal">
-      <!-- GROOM'S FAMILY -->
-      <div>
-        <div class="family-col-head">
-          <span class="family-col-tag">Groom's Side</span>
-          <h3 class="family-col-title">The Sahu Family</h3>
-          <p class="family-col-parents">
-            Smt. Jhamani Sahu<br>
-            <em style="font-size:12px; color:var(--muted);">Late Shri Govind Sahu</em>
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="badge badge--live"><span class="dot"></span>Open to senior Android roles</span>
+          <h1 class="hero__title">
+            Hi, I'm Tejbhan —<br />
+            I build <span class="grad">map-based, real-time</span> Android apps that scale.
+          </h1>
+          <p class="hero__lede">
+            Senior Android Engineer with <strong>6+ years</strong> shipping
+            performance-critical apps. I led the Android team on
+            <strong>Airtel Fiverse</strong> and raised
+            <strong>Saregama Padhanisa</strong> (1M+ downloads) from 69% to 99%
+            crash-free. Deep in Kotlin, Jetpack Compose, Coroutines/Flow — plus
+            Google Maps, ARCore, Filament &amp; 3D rendering.
           </p>
+          <div class="hero__cta">
+            <a href="#projects" class="btn btn--primary">
+              View my work
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M5 12h12.2l-4.6-4.6L14 6l7 6-7 6-1.4-1.4 4.6-4.6H5z"/></svg>
+            </a>
+            <a href="#contact" class="btn btn--neu">Get in touch</a>
+          </div>
+          <div class="hero__meta">
+            <span>📍 Hinganghat, Maharashtra, India</span>
+            <span class="hero__dot"></span>
+            <div class="hero__socials">
+              <a href="https://github.com/tejbhansahu" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://www.linkedin.com/in/tejbhan-sahu-23704689" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="mailto:tejbhansahu0.ts@gmail.com">Email</a>
+            </div>
+          </div>
         </div>
-        <div class="family-mini-grid">
-          <div class="fam-mini-card">
-            <div class="fam-mini-init">B</div>
-            <p class="fam-mini-name">Babita Sahu</p>
-            <span class="fam-mini-role">Mother of Groom</span>
-            <p style="font-size:11px;color:var(--muted);margin-top:4px;">& Shri Sonu Sahu</p>
+
+        <aside class="hero__card glass" aria-label="Profile summary">
+          <div class="hero__avatar">
+            <img src="tejbhan_sahu_profile.jpg" alt="Tejbhan Sahu" width="104" height="104" loading="eager" />
           </div>
-          <div class="fam-mini-card">
-            <div class="fam-mini-init">S</div>
-            <p class="fam-mini-name">Sarita Devi</p>
-            <span class="fam-mini-role">Family</span>
-            <p style="font-size:11px;color:var(--muted);margin-top:4px;">& Shri Nirmal Sahu</p>
+          <h2 class="hero__card-name">Tejbhan Sahu</h2>
+          <p class="hero__card-role">Senior Android Engineer</p>
+          <div class="hero__card-stats">
+            <div><span>6+</span><small>Years</small></div>
+            <div><span>1M+</span><small>Downloads</small></div>
+            <div><span>99%</span><small>Crash-free</small></div>
           </div>
-          <div class="fam-mini-card">
-            <div class="fam-mini-init">N</div>
-            <p class="fam-mini-name">Neelam Devi</p>
-            <span class="fam-mini-role">Family</span>
-            <p style="font-size:11px;color:var(--muted);margin-top:4px;">& Shri Kelash Sahu</p>
+          <ul class="hero__card-stack">
+            <li>Kotlin</li><li>Compose</li><li>Coroutines</li><li>Maps SDK</li><li>ARCore</li>
+          </ul>
+        </aside>
+      </div>
+
+      <a href="#about" class="hero__scroll" aria-label="Scroll to About">
+        <span class="hero__scroll-dot"></span>
+        <span>Scroll</span>
+      </a>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">01</span>
+          <h2 class="section__title">About</h2>
+          <span class="section__rule"></span>
+        </div>
+
+        <div class="about">
+          <div class="about__bio reveal">
+            <p class="about__lead">
+              I'm an Android engineer who loves turning hard, real-world problems —
+              maps, real-time data, 3D, offline sync — into fast, reliable apps.
+            </p>
+            <p>
+              Over the last 6+ years I've led Android teams and shipped products
+              used by field agents across <strong>500+ cities</strong> and by over
+              <strong>1M</strong> consumers. At InnovationM I lead the Android team
+              on <strong>Airtel Fiverse</strong>, an enterprise fiber-planning tool
+              built on Google Maps (2D/3D) with ARCore &amp; Filament, where I cut
+              map rendering time by 60% and held a 99.2% crash-free rate.
+            </p>
+            <p>
+              I care about the craft under the hood: ANR-free threading, memory
+              profiling, clean MVVM/MVI architecture, modularization, and
+              offline-first sync that survives flaky networks.
+            </p>
+
+            <div class="about__principles">
+              <article class="principle glass">
+                <div class="principle__icon">🗺️</div>
+                <h3>Maps, AR &amp; 3D</h3>
+                <p>Google Maps SDK, custom clustering, ARCore, Filament &amp; GLB models.</p>
+              </article>
+              <article class="principle glass">
+                <div class="principle__icon">⚡</div>
+                <h3>Performance</h3>
+                <p>ANR reduction, memory profiling, LeakCanary, R8 — jank-free UI.</p>
+              </article>
+              <article class="principle glass">
+                <div class="principle__icon">🧱</div>
+                <h3>Architecture</h3>
+                <p>MVVM / MVI, Clean Architecture, modularization, Hilt DI.</p>
+              </article>
+              <article class="principle glass">
+                <div class="principle__icon">🔄</div>
+                <h3>Real-time &amp; offline</h3>
+                <p>Coroutines/Flow, WebSocket, Room + WorkManager offline-first sync.</p>
+              </article>
+            </div>
           </div>
-          <div class="fam-mini-card">
-            <div class="fam-mini-init">N</div>
-            <p class="fam-mini-name">Neha</p>
-            <span class="fam-mini-role">Family</span>
-            <p style="font-size:11px;color:var(--muted);margin-top:4px;">& Shri Govardhan Sahu</p>
+
+          <aside class="about__card glass reveal">
+            <h3 class="about__card-title">Profile</h3>
+            <dl class="about__facts">
+              <div><dt>Role</dt><dd>Senior Android Engineer</dd></div>
+              <div><dt>Experience</dt><dd>6+ years</dd></div>
+              <div><dt>Current</dt><dd>InnovationM</dd></div>
+              <div><dt>Focus</dt><dd>Kotlin · Compose</dd></div>
+              <div><dt>Location</dt><dd>Maharashtra, India</dd></div>
+              <div><dt>Languages</dt><dd>English, Hindi, Marathi</dd></div>
+              <div><dt>Status</dt><dd class="ok">Open to work</dd></div>
+            </dl>
+            <a href="mailto:tejbhansahu0.ts@gmail.com" class="btn btn--primary btn--block">Hire me</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Impact / Stats ===== -->
+    <section class="section" id="impact">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">02</span>
+          <h2 class="section__title">Impact by the numbers</h2>
+          <span class="section__rule"></span>
+        </div>
+
+        <div class="stats">
+          <div class="stat neu reveal"><span class="stat__num" data-count="6" data-suffix="+">6+</span><span class="stat__label">Years experience</span></div>
+          <div class="stat neu reveal"><span class="stat__num" data-count="1" data-suffix="M+">1M+</span><span class="stat__label">App downloads</span></div>
+          <div class="stat neu reveal"><span class="stat__num" data-count="99" data-suffix="%">99%</span><span class="stat__label">Crash-free rate</span></div>
+          <div class="stat neu reveal"><span class="stat__num" data-count="60" data-suffix="%">60%</span><span class="stat__label">Faster map render</span></div>
+          <div class="stat neu reveal"><span class="stat__num" data-count="500" data-suffix="+">500+</span><span class="stat__label">Cities served</span></div>
+          <div class="stat neu reveal"><span class="stat__num" data-count="500" data-suffix="+">500+</span><span class="stat__label">ANRs removed</span></div>
+          <div class="stat neu reveal"><span class="stat__num" data-count="5" data-suffix="">5</span><span class="stat__label">Devs led</span></div>
+          <div class="stat neu reveal"><span class="stat__num" data-count="4.5" data-suffix="★">4.5★</span><span class="stat__label">Avg. store rating</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Experience ===== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">03</span>
+          <h2 class="section__title">Experience</h2>
+          <span class="section__rule"></span>
+        </div>
+
+        <ol class="timeline">
+          <li class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card glass">
+              <div class="timeline__top">
+                <h3>Senior Software Engineer</h3>
+                <span class="timeline__date">Apr 2023 — Present</span>
+              </div>
+              <p class="timeline__company">InnovationM</p>
+              <p class="timeline__sub">Airtel Fiverse — enterprise fiber planning · Saregama Padhanisa — AI vocal training (1M+)</p>
+              <ul>
+                <li>Led a team of <strong>5 Android developers</strong> building a map-centric app for field agents across <strong>500+ cities</strong>.</li>
+                <li>Cut map rendering time by <strong>60%</strong> with 10K+ markers via custom clustering &amp; viewport-based rendering; added polygons, overlays and 3D building visualization on Google Maps SDK.</li>
+                <li>Built 3D apartment models with ARCore, Filament &amp; the Android XR SDK; designed MVVM (Hilt, Coroutines/Flow, Retrofit) with offline-first Room + WorkManager sync for 500MB+ datasets.</li>
+                <li>Raised Saregama Padhanisa from <strong>69% → 99% crash-free</strong>, removing 500+ ANRs; integrated 100ms live video + custom pitch-detection SDK and an ExoPlayer waveform player.</li>
+                <li>Impact: survey accuracy 75% → 94%, paperwork −80%, workflow time −40%.</li>
+              </ul>
+              <ul class="timeline__tags">
+                <li>Kotlin</li><li>Compose</li><li>Maps SDK</li><li>ARCore</li><li>Filament</li><li>100ms</li><li>ExoPlayer</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card glass">
+              <div class="timeline__top">
+                <h3>Mobile Engineer L1</h3>
+                <span class="timeline__date">Mar 2022 — Apr 2023</span>
+              </div>
+              <p class="timeline__company">Squareboat Solutions</p>
+              <p class="timeline__sub">BharatCattle — livestock marketplace · DRL Healify — telehealth</p>
+              <ul>
+                <li>Led a team of <strong>4 developers</strong> shipping apps to <strong>100K+ users</strong>; cut load times 25% with lazy loading &amp; pagination, lifting engagement 18%.</li>
+                <li>Architected BharatCattle (MVVM, real-time listings, search/filters, payments, geolocation, Firebase).</li>
+                <li>Built DRL Healify telehealth for 2K+ patients: ExoPlayer video consults, appointment calendar, FCM reminders, and a Canvas pain heat-map across 10+ body zones.</li>
+                <li>Reduced network calls 35% with Room caching; added a WebSocket layer for real-time updates.</li>
+              </ul>
+              <ul class="timeline__tags">
+                <li>Kotlin</li><li>MVVM</li><li>Firebase</li><li>WebSocket</li><li>ExoPlayer</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card glass">
+              <div class="timeline__top">
+                <h3>Software Developer</h3>
+                <span class="timeline__date">Jun 2021 — Mar 2022</span>
+              </div>
+              <p class="timeline__company">Techtonic Enterprise</p>
+              <p class="timeline__sub">Cengage Digital — offline-first learning (100K+)</p>
+              <ul>
+                <li>Built an offline-first learning app for <strong>15K+ students</strong>: Room caching, AES-256 encrypted downloads, QR-based resource access, ExoPlayer video and Razorpay payments.</li>
+                <li>Built a quiz engine with 8 question types &amp; adaptive difficulty, handling 20K+ attempts per month.</li>
+              </ul>
+              <ul class="timeline__tags">
+                <li>Kotlin</li><li>Room</li><li>AES-256</li><li>ExoPlayer</li><li>Razorpay</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card glass">
+              <div class="timeline__top">
+                <h3>Android Developer</h3>
+                <span class="timeline__date">Aug 2020 — Jun 2021</span>
+              </div>
+              <p class="timeline__company">Zappkode Solutions</p>
+              <p class="timeline__sub">CICR Cotton — farmer assistance</p>
+              <ul>
+                <li>Built a farmer-assistance app with Google Maps field mapping, offline Room storage, and Hindi / Marathi / English localization.</li>
+              </ul>
+              <ul class="timeline__tags">
+                <li>Kotlin</li><li>Maps</li><li>Room</li><li>i18n</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">04</span>
+          <h2 class="section__title">Featured projects</h2>
+          <span class="section__rule"></span>
+        </div>
+
+        <div class="projects">
+          <article class="card glass reveal card--feature">
+            <div class="card__top">
+              <span class="card__badge">Flagship</span>
+              <span class="card__store">Play Store</span>
+            </div>
+            <h3 class="card__title">Airtel Fiverse</h3>
+            <p class="card__role">Lead Android · InnovationM</p>
+            <p class="card__desc">
+              Enterprise fiber-planning tool on Google Maps (2D/3D) for field agents
+              across 500+ cities. Custom marker clustering for 10K+ points, 3D
+              building &amp; apartment visualization with ARCore + Filament, and
+              offline-first sync for 500MB+ datasets.
+            </p>
+            <ul class="card__stack">
+              <li>Maps SDK</li><li>ARCore</li><li>Filament</li><li>Compose</li><li>Room</li><li>WorkManager</li>
+            </ul>
+          </article>
+
+          <article class="card glass reveal card--feature">
+            <div class="card__top">
+              <span class="card__badge">1M+ downloads</span>
+              <span class="card__store">4.5 ★</span>
+            </div>
+            <h3 class="card__title">Saregama Padhanisa</h3>
+            <p class="card__role">Android Engineer · InnovationM</p>
+            <p class="card__desc">
+              AI vocal-training app. Took stability from 69% → 99% crash-free and
+              removed 500+ ANRs. Real-time pitch detection, live video lessons via
+              100ms, and an ExoPlayer waveform audio player with deep linking.
+            </p>
+            <ul class="card__stack">
+              <li>100ms</li><li>ExoPlayer</li><li>Coroutines</li><li>FCM</li>
+            </ul>
+          </article>
+
+          <article class="card glass reveal">
+            <div class="card__top">
+              <span class="card__badge">Marketplace</span>
+            </div>
+            <h3 class="card__title">BharatCattle</h3>
+            <p class="card__role">Android · Squareboat</p>
+            <p class="card__desc">
+              Livestock marketplace with real-time listings, search &amp; filters,
+              geolocation and in-app payments.
+            </p>
+            <ul class="card__stack">
+              <li>MVVM</li><li>Firebase</li><li>Geolocation</li>
+            </ul>
+          </article>
+
+          <article class="card glass reveal">
+            <div class="card__top">
+              <span class="card__badge">Telehealth</span>
+            </div>
+            <h3 class="card__title">DRL Healify</h3>
+            <p class="card__role">Android · Squareboat</p>
+            <p class="card__desc">
+              Telehealth for 2K+ patients: video consults, appointment calendar,
+              FCM reminders, and a Canvas pain heat-map across 10+ body zones.
+            </p>
+            <ul class="card__stack">
+              <li>ExoPlayer</li><li>Canvas</li><li>WebSocket</li>
+            </ul>
+          </article>
+
+          <article class="card glass reveal">
+            <div class="card__top">
+              <span class="card__badge">EdTech</span>
+              <span class="card__store">100K+</span>
+            </div>
+            <h3 class="card__title">Cengage Digital</h3>
+            <p class="card__role">Android · Techtonic</p>
+            <p class="card__desc">
+              Offline-first learning app for 15K+ students: AES-256 encrypted
+              downloads, QR resource access, an adaptive quiz engine, and Razorpay.
+            </p>
+            <ul class="card__stack">
+              <li>Room</li><li>AES-256</li><li>Razorpay</li>
+            </ul>
+          </article>
+
+          <article class="card glass reveal">
+            <div class="card__top">
+              <span class="card__badge">AgriTech</span>
+            </div>
+            <h3 class="card__title">CICR Cotton</h3>
+            <p class="card__role">Android · Zappkode</p>
+            <p class="card__desc">
+              Farmer-assistance app with Google Maps field mapping, offline Room
+              storage, and Hindi / Marathi / English localization.
+            </p>
+            <ul class="card__stack">
+              <li>Maps</li><li>Room</li><li>i18n</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">05</span>
+          <h2 class="section__title">Skills &amp; tech stack</h2>
+          <span class="section__rule"></span>
+        </div>
+
+        <div class="skills">
+          <div class="skills__group glass reveal">
+            <h3>Languages</h3>
+            <ul><li>Kotlin</li><li>Java</li><li>XML</li></ul>
           </div>
-          <div class="fam-mini-card">
-            <div class="fam-mini-init">U</div>
-            <p class="fam-mini-name">Usha</p>
-            <span class="fam-mini-role">Family</span>
-            <p style="font-size:11px;color:var(--muted);margin-top:4px;">& Shri Vikas Sahu</p>
+          <div class="skills__group glass reveal">
+            <h3>Android &amp; Jetpack</h3>
+            <ul><li>Jetpack Compose</li><li>Coroutines &amp; Flow</li><li>ViewModel</li><li>LiveData</li><li>Room</li><li>WorkManager</li><li>Navigation</li><li>Hilt / Dagger 2</li><li>Retrofit / OkHttp</li><li>WebSocket</li><li>GraphQL</li><li>RxJava</li></ul>
           </div>
-          <div class="fam-mini-card">
-            <div class="fam-mini-init">O</div>
-            <p class="fam-mini-name">Omi</p>
-            <span class="fam-mini-role">Family</span>
-            <p style="font-size:11px;color:var(--muted);margin-top:4px;">& Shri Pankaj Sahu</p>
+          <div class="skills__group glass reveal">
+            <h3>Architecture</h3>
+            <ul><li>MVVM</li><li>MVI</li><li>Clean Architecture</li><li>Modularization</li><li>Material Design 3</li></ul>
           </div>
-          <div class="fam-mini-card">
-            <div class="fam-mini-init">R</div>
-            <p class="fam-mini-name">Rani</p>
-            <span class="fam-mini-role">Family</span>
-            <p style="font-size:11px;color:var(--muted);margin-top:4px;">& Shri Suryakant Sahu</p>
+          <div class="skills__group glass reveal">
+            <h3>Maps, AR &amp; 3D</h3>
+            <ul><li>Google Maps SDK (2D/3D)</li><li>Geofencing</li><li>ARCore</li><li>Filament</li><li>GLB models</li><li>Android XR SDK</li></ul>
           </div>
-          <div class="fam-mini-card">
-            <div class="fam-mini-init">✦</div>
-            <p class="fam-mini-name">& All Members</p>
-            <span class="fam-mini-role">Samast Sahu Parivar</span>
-            <p style="font-size:10px;color:var(--muted);margin-top:4px;">Anjan · Rajesh · Pawan · Raja · Somi</p>
+          <div class="skills__group glass reveal">
+            <h3>Media &amp; Realtime</h3>
+            <ul><li>ExoPlayer</li><li>Camera2</li><li>MediaCodec</li><li>FFmpeg</li><li>100ms</li><li>Agora</li><li>Socket.io</li><li>FCM</li></ul>
+          </div>
+          <div class="skills__group glass reveal">
+            <h3>Performance</h3>
+            <ul><li>ANR reduction</li><li>Memory profiling</li><li>LeakCanary</li><li>ProGuard / R8</li><li>Firebase Crashlytics</li></ul>
+          </div>
+          <div class="skills__group glass reveal">
+            <h3>Tools</h3>
+            <ul><li>Git</li><li>Jenkins CI/CD</li><li>Gradle</li><li>Android Studio</li><li>Postman</li><li>Figma</li></ul>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- BRIDE'S FAMILY -->
-      <div>
-        <div class="family-col-head">
-          <span class="family-col-tag">Bride's Side</span>
-          <h3 class="family-col-title">The Chauhan Family</h3>
-          <p class="family-col-parents">
-            Smt. Kamal Chauhan<br>
-            <em style="font-size:12px; color:var(--muted);">Late Shri Rajesh Chauhan</em>
-          </p>
+    <!-- ===== Education & Awards ===== -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">06</span>
+          <h2 class="section__title">Education &amp; awards</h2>
+          <span class="section__rule"></span>
         </div>
-        <div class="family-mini-grid">
-          <div class="fam-mini-card">
-            <div class="fam-mini-init">K</div>
-            <p class="fam-mini-name">Kamal Chauhan</p>
-            <span class="fam-mini-role">Mother of Bride</span>
-            <p style="font-size:11px;color:var(--muted);margin-top:4px;">& Late Shri Rajesh Chauhan</p>
+
+        <div class="edu">
+          <div class="edu__col reveal">
+            <h3 class="edu__col-title">Education</h3>
+            <div class="edu__item glass">
+              <div class="edu__row"><h4>B.E. Information Technology</h4><span>2016 — 2020</span></div>
+              <p>K.D.K College of Engineering, Nagpur · CGPA 8.05</p>
+            </div>
+            <div class="edu__item glass">
+              <div class="edu__row"><h4>HSC — Computer Science</h4><span>2016</span></div>
+              <p>G.B.M.M Junior College of Science, Hinganghat · 65%</p>
+            </div>
+            <div class="edu__item glass">
+              <div class="edu__row"><h4>SSC</h4><span>2014</span></div>
+              <p>Bansilal Katariya High School, Hinganghat · 66.36%</p>
+            </div>
           </div>
-          <div class="fam-mini-card">
-            <div class="fam-mini-init">✦</div>
-            <p class="fam-mini-name">& All Members</p>
-            <span class="fam-mini-role">Samast Chauhan Parivar</span>
-            <p style="font-size:11px;color:var(--muted);margin-top:4px;">Pyush · Khushi</p>
-          </div>
-          <div class="fam-mini-card" style="grid-column:1/-1;">
-            <div class="fam-mini-init" style="width:52px;height:52px;font-size:20px;">🏠</div>
-            <p class="fam-mini-name">Chauhan Family</p>
-            <span class="fam-mini-role">Bride's Residence</span>
-            <p style="font-size:11px;color:var(--muted);margin-top:6px;line-height:1.7;">33/C, Kamla Niwas, New Diamond Nagar<br>New Sahakar Nagar, Kharabi<br>Nagpur — 440024</p>
+
+          <div class="edu__col reveal">
+            <h3 class="edu__col-title">Awards &amp; certifications</h3>
+            <div class="edu__item glass">
+              <div class="edu__row"><h4>Aspiring Ace Award</h4><span>2025</span></div>
+              <p>InnovationM</p>
+            </div>
+            <div class="edu__item glass">
+              <div class="edu__row"><h4>Dedicated Spirit Award</h4><span>2024</span></div>
+              <p>InnovationM</p>
+            </div>
+            <div class="edu__item glass">
+              <div class="edu__row"><h4>Performer of the Quarter</h4><span>Q4 2023</span></div>
+              <p>Squareboat Solutions</p>
+            </div>
+            <div class="edu__item glass">
+              <div class="edu__row"><h4>RHCSA</h4><span>Certified</span></div>
+              <p>Red Hat Certified System Administrator</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="poem-block reveal">
-      <p class="poem-quote">
-        "Though you may be far away, and time may be short —<br>
-        to miss Uncle's wedding, that simply cannot be thought."
-      </p>
-      <span class="poem-attr">— Aarya, Sanvi & Avi</span>
-    </div>
-  </div>
-</section>
+    <!-- ===== Contact ===== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__num">07</span>
+          <h2 class="section__title">Let's talk</h2>
+          <span class="section__rule"></span>
+        </div>
 
-<!-- RSVP -->
-<section id="rsvp">
-  <div class="section-wrap">
-    <span class="eyebrow reveal">Your Presence Matters</span>
-    <h2 class="heading reveal">Kindly Respond</h2>
-    <div class="rule reveal"></div>
-    <div class="rsvp-inner reveal">
-      <p class="rsvp-note">
-        We would be truly honoured by your presence on this joyful occasion. Please let us know if you will be joining us to celebrate.
-      </p>
-      <form id="rsvpForm" onsubmit="handleRSVP(event)">
-        <div class="form-row-2">
-          <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" id="rsvp-name" placeholder="Your full name" required>
+        <div class="contact glass reveal">
+          <div class="contact__pitch">
+            <h3>Building something ambitious?</h3>
+            <p>
+              I'm open to senior Android roles and interesting freelance work —
+              especially maps, real-time, media, or 3D/AR. The fastest way to reach
+              me is email; I usually reply within a day.
+            </p>
+            <div class="contact__email">
+              <a href="mailto:tejbhansahu0.ts@gmail.com" class="contact__email-link" id="emailLink">tejbhansahu0.ts@gmail.com</a>
+              <button class="btn btn--neu btn--sm" id="copyEmail" type="button">Copy</button>
+            </div>
+            <p class="contact__phone">📞 <a href="tel:+917350690287">+91 73506 90287</a></p>
           </div>
-          <div class="form-group">
-            <label>Mobile Number</label>
-            <input type="tel" id="rsvp-phone" placeholder="+91 00000 00000">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address (Optional)</label>
-          <input type="email" id="rsvp-email" placeholder="your@email.com">
-        </div>
-        <div class="form-row-2">
-          <div class="form-group">
-            <label>Will You Attend?</label>
-            <select id="rsvp-attend" required>
-              <option value="" disabled selected>Please select</option>
-              <option value="yes">Joyfully Attending 🎉</option>
-              <option value="no">Regretfully Unable</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Number of Guests</label>
-            <input type="number" id="rsvp-guests" placeholder="Total guests" min="1" max="20">
+
+          <div class="contact__socials">
+            <a class="social neu" href="https://github.com/tejbhansahu" target="_blank" rel="noopener">
+              <span class="social__name">GitHub</span><span class="social__handle">@tejbhansahu</span>
+            </a>
+            <a class="social neu" href="https://www.linkedin.com/in/tejbhan-sahu-23704689" target="_blank" rel="noopener">
+              <span class="social__name">LinkedIn</span><span class="social__handle">/in/tejbhan-sahu</span>
+            </a>
+            <a class="social neu" href="mailto:tejbhansahu0.ts@gmail.com">
+              <span class="social__name">Email</span><span class="social__handle">tejbhansahu0.ts</span>
+            </a>
+            <a class="social neu" href="assets/resume.pdf" download>
+              <span class="social__name">Résumé</span><span class="social__handle">Download PDF</span>
+            </a>
           </div>
         </div>
-        <div class="form-group">
-          <label>A Message for the Couple (Optional)</label>
-          <textarea id="rsvp-message" placeholder="Share your wishes or blessings..."></textarea>
-        </div>
-        <button type="submit" class="form-btn">Confirm Attendance via WhatsApp 💬</button>
-      </form>
-      <div class="rsvp-success" id="rsvpSuccess">
-        <h3>Thank you so much!</h3>
-        <p>Your response has been received. We look forward to celebrating with you.</p>
       </div>
-      <div class="rsvp-contact">
-        <strong>R.S.V.P. Contact</strong><br>
-        Bablu Sahu, Hinganghat, Wardha<br>
-        <a href="tel:+917666852564">+91 76668 52564</a> &nbsp;|&nbsp; <a href="tel:+919765136450">+91 97651 36450</a>
-      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year">2026</span> Tejbhan Sahu — crafted with Kotlin-grade care.</span>
+      <a href="#top" class="footer__top">Back to top ↑</a>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- FOOTER -->
-<footer>
-  <span class="footer-script">Tejbhan weds Dolly</span>
-  <p class="footer-date">Monday · 20 April 2026 · Nagpur, Maharashtra</p>
-  <div class="footer-contacts">
-    <div class="footer-item">
-      <p class="footer-item-label">Groom's Family</p>
-      <p class="footer-item-val">Shri Sonu Sahu<br><a href="tel:+919765136450">+91 97651 36450</a><br>Hinganghat, Wardha</p>
-    </div>
-    <div class="footer-item">
-      <p class="footer-item-label">Bride's Family</p>
-      <p class="footer-item-val">Late Shri Rajesh Chauhan<br>New Diamond Nagar<br>Kharabi, Nagpur</p>
-    </div>
-    <div class="footer-item">
-      <p class="footer-item-label">RSVP</p>
-      <p class="footer-item-val">Shri Govardhan Sahu<br><a href="tel:+917666852564">+91 76668 52564</a><br>Hinganghat, Wardha</p>
-    </div>
-    <div class="footer-item">
-      <p class="footer-item-label">Venue</p>
-      <p class="footer-item-val">Royal Wedding Lawn<br>Kamptee Road, Nagpur</p>
-    </div>
-  </div>
-  <div class="footer-rule"></div>
-  <p class="footer-copy">With love & gratitude — Tejbhan · Dolly · The Sahu & Chauhan Families &nbsp;|&nbsp; © 2026</p>
-</footer>
-
-<!-- SCRIPTS -->
-<script>
-// ── LOADER ──
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('hide');
-  }, 2400);
-});
-
-// ── SCROLL PROGRESS BAR ──
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  document.getElementById('progress').style.width = pct + '%';
-}, { passive: true });
-
-// ── PARTICLE CANVAS (floating gold dust on hero - desktop only) ──
-(function(){
-  if(window.matchMedia('(pointer:coarse)').matches) return; // skip on touch devices
-  const canvas = document.getElementById('particles');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let W, H, particles = [];
-
-  function resize() {
-    W = canvas.width  = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  function Particle() {
-    this.reset();
-  }
-  Particle.prototype.reset = function() {
-    this.x  = Math.random() * W;
-    this.y  = Math.random() * H;
-    this.r  = Math.random() * 1.5 + 0.3;
-    this.vx = (Math.random() - 0.5) * 0.3;
-    this.vy = -(Math.random() * 0.4 + 0.1);
-    this.a  = Math.random() * 0.5 + 0.1;
-    this.life = 0;
-    this.maxLife = Math.random() * 300 + 100;
-  };
-  Particle.prototype.draw = function() {
-    this.life++;
-    this.x += this.vx;
-    this.y += this.vy;
-    const progress = this.life / this.maxLife;
-    const alpha = this.a * Math.sin(Math.PI * progress);
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
-    ctx.fillStyle = `rgba(184,154,106,${alpha})`;
-    ctx.fill();
-    if(this.life >= this.maxLife) this.reset();
-  };
-
-  for(let i = 0; i < 60; i++) particles.push(new Particle());
-
-  function animate() {
-    ctx.clearRect(0, 0, W, H);
-    particles.forEach(p => p.draw());
-    requestAnimationFrame(animate);
-  }
-  animate();
-})();
-
-// ── CURSOR (desktop only) ──
-const cursor = document.getElementById('cursor');
-const ring   = document.getElementById('cursorRing');
-if(window.matchMedia('(pointer:coarse)').matches) {
-  cursor.style.display='none'; ring.style.display='none';
-}
-let mx=0, my=0, rx=0, ry=0;
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx+'px'; cursor.style.top = my+'px';
-});
-(function animRing(){
-  rx += (mx-rx)*0.12; ry += (my-ry)*0.12;
-  ring.style.left = rx+'px'; ring.style.top = ry+'px';
-  requestAnimationFrame(animRing);
-})();
-document.querySelectorAll('a,button,input,select,textarea').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    ring.style.transform = 'translate(-50%,-50%) scale(2)';
-    ring.style.borderColor = 'rgba(184,154,106,0.8)';
-  });
-  el.addEventListener('mouseleave', () => {
-    ring.style.transform = 'translate(-50%,-50%) scale(1)';
-    ring.style.borderColor = 'rgba(184,154,106,0.5)';
-  });
-});
-
-// ── MAGNETIC BUTTONS (desktop only) ──
-if(window.matchMedia('(pointer:fine)').matches)
-document.querySelectorAll('.mag-btn,.loc-btn,.hero-cta,.wa-btn,.nav-rsvp').forEach(btn => {
-  btn.addEventListener('mousemove', e => {
-    const r = btn.getBoundingClientRect();
-    const dx = e.clientX - (r.left + r.width/2);
-    const dy = e.clientY - (r.top  + r.height/2);
-    btn.style.transform = `translate(${dx*0.25}px,${dy*0.25}px)`;
-  });
-  btn.addEventListener('mouseleave', () => {
-    btn.style.transform = 'translate(0,0)';
-  });
-});
-
-// ── NAV HIDE / SHOW ON SCROLL + ACTIVE SECTION ──
-let lastScroll = 0;
-const navbar   = document.getElementById('navbar');
-const sections = document.querySelectorAll('section[id], #countdown');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  const cur = window.scrollY;
-  navbar.classList.toggle('solid', cur > 60);
-  if(cur > 400) navbar.classList.toggle('hidden', cur > lastScroll && cur > 100);
-  else navbar.classList.remove('hidden');
-  lastScroll = cur;
-
-  document.getElementById('scrollTop').classList.toggle('show', cur > 500);
-
-  // active nav link
-  let current = '';
-  sections.forEach(sec => {
-    if(window.scrollY >= sec.offsetTop - 200) current = sec.id;
-  });
-  navLinks.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#'+current);
-  });
-}, { passive: true });
-
-// ── MOBILE NAV ──
-let mobileOpen = false;
-function toggleMobile() {
-  mobileOpen = !mobileOpen;
-  document.getElementById('mobileNav').classList.toggle('open', mobileOpen);
-  document.getElementById('hamburger').classList.toggle('open', mobileOpen);
-  document.body.style.overflow = mobileOpen ? 'hidden' : '';
-}
-function closeMobile() {
-  mobileOpen = false;
-  document.getElementById('mobileNav').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// ── COUNTDOWN with flip animation ──
-let prevVals = {};
-function tick() {
-  const target = new Date('2026-04-20T20:00:00+05:30');
-  const diff   = target - new Date();
-  if(diff <= 0) { ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent='00'); return; }
-  const vals = {
-    'd': String(Math.floor(diff/86400000)).padStart(2,'0'),
-    'h': String(Math.floor((diff%86400000)/3600000)).padStart(2,'0'),
-    'm': String(Math.floor((diff%3600000)/60000)).padStart(2,'0'),
-    's': String(Math.floor((diff%60000)/1000)).padStart(2,'0')
-  };
-  ['d','h','m','s'].forEach(k => {
-    const el = document.getElementById('cd-'+k);
-    if(vals[k] !== prevVals[k]) {
-      el.textContent = vals[k];
-      el.classList.remove('bump');
-      void el.offsetWidth; // reflow
-      el.classList.add('bump');
-      setTimeout(()=>el.classList.remove('bump'), 300);
-    }
-  });
-  prevVals = {...vals};
-}
-setInterval(tick, 1000); tick();
-
-// ── SCROLL REVEAL (IntersectionObserver) ──
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if(e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('vis'), i * 60);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px 0px 0px' });
-document.querySelectorAll('.reveal, .tl-item, .rule, .clip-reveal, .poem-block').forEach(el => revealObs.observe(el));
-
-// ── EYEBROW LETTER STAGGER ──
-document.querySelectorAll('.eyebrow').forEach(el => {
-  const text = el.textContent;
-  el.innerHTML = text.split('').map(c =>
-    c === ' ' ? ' ' : `<span>${c}</span>`
-  ).join('');
-  el.classList.add('eyebrow-anim');
-});
-const eyebrowObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting) {
-      const spans = e.target.querySelectorAll('span');
-      spans.forEach((s, i) => {
-        s.style.transitionDelay = (i * 0.04) + 's';
-      });
-      e.target.classList.add('vis');
-    }
-  });
-}, { threshold: 0.2 });
-document.querySelectorAll('.eyebrow-anim').forEach(el => eyebrowObs.observe(el));
-
-// ── PETALS on hero CTA click ──
-document.querySelector('.hero-cta')?.addEventListener('click', spawnPetals);
-function spawnPetals() {
-  const petals = ['🌸','🌺','✨','💫','🌼'];
-  for(let i = 0; i < 12; i++) {
-    setTimeout(() => {
-      const el = document.createElement('div');
-      el.className = 'petal';
-      el.textContent = petals[Math.floor(Math.random()*petals.length)];
-      el.style.cssText = `left:${Math.random()*100}vw; top:-20px; animation-duration:${2+Math.random()*3}s;`;
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 5000);
-    }, i * 100);
-  }
-}
-
-// ── SMOOTH NUMBER COUNTER for stats ──
-function animateCounter(el, target, duration=1500) {
-  let start = null, from = 0;
-  function step(ts) {
-    if(!start) start = ts;
-    const p = Math.min((ts-start)/duration, 1);
-    el.textContent = Math.floor(from + (target-from) * p);
-    if(p < 1) requestAnimationFrame(step);
-    else el.textContent = target;
-  }
-  requestAnimationFrame(step);
-}
-
-// ── WHATSAPP SHARE ──
-document.getElementById('waBtn').href = 'https://wa.me/?text=' + encodeURIComponent(
-  '💍 *Tejbhan & Dolly — Wedding Invitation*\n\n' +
-  'You are cordially invited to celebrate the wedding of *Tejbhan Sahu* & *Dolly Chauhan*\n\n' +
-  '📅 *Monday, 20th April 2026*\n🕗 Ceremony at *8:00 PM*\n' +
-  '📍 Royal Wedding Lawn, NH-7, Kamptee Road, Nagpur\n\n' +
-  '🎊 *Welcome Reception* — Wednesday, 22nd April 2026 · 7 PM\n' +
-  '📍 Nakshatra Celebration Lawn, Hinganghat\n\n' +
-  'With love — *The Sahu & Chauhan Families* 🙏'
-);
-
-// ── RSVP via WhatsApp ──
-function handleRSVP(e) {
-  e.preventDefault();
-  const name   = document.getElementById('rsvp-name').value    || 'Guest';
-  const phone  = document.getElementById('rsvp-phone').value   || 'Not provided';
-  const attend = document.getElementById('rsvp-attend').value === 'yes' ? '✅ YES, attending' : '❌ Unable to attend';
-  const guests = document.getElementById('rsvp-guests').value  || '1';
-  const msg    = document.getElementById('rsvp-message').value || '';
-  const text =
-    `💍 *RSVP — Tejbhan & Dolly Wedding*\n\n` +
-    `👤 Name: ${name}\n📞 Phone: ${phone}\n` +
-    `📋 Attendance: ${attend}\n👥 Guests: ${guests}\n` +
-    (msg ? `💬 Message: ${msg}\n` : '') +
-    `\n_Sent via the Wedding Website_`;
-  window.open('https://wa.me/917350690287?text=' + encodeURIComponent(text), '_blank');
-  document.getElementById('rsvpForm').style.display = 'none';
-  document.getElementById('rsvpSuccess').style.display = 'block';
-  spawnPetals();
-}
-
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
