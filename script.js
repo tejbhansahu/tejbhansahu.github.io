@@ -1026,7 +1026,6 @@
      ========================================================= */
   var logcatDrawer = document.getElementById("logcatDrawer");
   var logcatToggle = document.getElementById("logcatToggle");
-  var footerLogcat = document.getElementById("footerLogcat");
   var logcatClose = document.getElementById("logcatClose");
   var logcatClear = document.getElementById("logcatClear");
   var logcatTerminal = document.getElementById("logcatTerminal");
@@ -1079,7 +1078,6 @@
   }
 
   if (logcatToggle) logcatToggle.addEventListener("click", toggleLogcatDrawer);
-  if (footerLogcat) footerLogcat.addEventListener("click", toggleLogcatDrawer);
 
   if (logcatClose && logcatDrawer) {
     logcatClose.addEventListener("click", function () {
