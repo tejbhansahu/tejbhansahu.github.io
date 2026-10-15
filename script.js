@@ -856,6 +856,7 @@
      ========================================================= */
   var resumeModal = document.getElementById("resumeModal");
   var resumeBtn = document.getElementById("resumePreviewBtn");
+  var mobileResumeBtn = document.getElementById("mobileResumeBtn");
   var closeResume = document.getElementById("closeResumeModal");
 
   function openResumeModal() {
@@ -866,6 +867,13 @@
   }
 
   if (resumeBtn) resumeBtn.addEventListener("click", openResumeModal);
+  if (mobileResumeBtn) {
+    mobileResumeBtn.addEventListener("click", function () {
+      if (nav) nav.classList.remove("is-open");
+      if (burger) burger.setAttribute("aria-expanded", "false");
+      openResumeModal();
+    });
+  }
   if (closeResume) closeResume.addEventListener("click", closeAllModals);
   if (resumeModal) {
     resumeModal.addEventListener("click", function (e) {
@@ -1018,6 +1026,7 @@
      ========================================================= */
   var logcatDrawer = document.getElementById("logcatDrawer");
   var logcatToggle = document.getElementById("logcatToggle");
+  var footerLogcat = document.getElementById("footerLogcat");
   var logcatClose = document.getElementById("logcatClose");
   var logcatClear = document.getElementById("logcatClear");
   var logcatTerminal = document.getElementById("logcatTerminal");
@@ -1052,23 +1061,25 @@
   }
 
   var logcatLoaded = false;
-  if (logcatToggle && logcatDrawer) {
-    logcatToggle.addEventListener("click", function () {
-      var isOpen = logcatDrawer.classList.toggle("is-open");
-      if (isOpen && !logcatLoaded) {
-        logcatLoaded = true;
-        sampleLogs.forEach(function (l, i) {
-          setTimeout(function () { addLogLine(l.tag, l.comp, l.msg); }, i * 140);
-        });
-        setTimeout(function () {
-          addLogLine("I", "LogcatCLI", "Ready. Type 'help' to inspect Android system commands.");
-          if (logcatInput) logcatInput.focus();
-        }, sampleLogs.length * 140 + 100);
-      } else if (isOpen && logcatInput) {
-        logcatInput.focus();
-      }
-    });
+  function toggleLogcatDrawer() {
+    if (!logcatDrawer) return;
+    var isOpen = logcatDrawer.classList.toggle("is-open");
+    if (isOpen && !logcatLoaded) {
+      logcatLoaded = true;
+      sampleLogs.forEach(function (l, i) {
+        setTimeout(function () { addLogLine(l.tag, l.comp, l.msg); }, i * 140);
+      });
+      setTimeout(function () {
+        addLogLine("I", "LogcatCLI", "Ready. Type 'help' to inspect Android system commands.");
+        if (logcatInput) logcatInput.focus();
+      }, sampleLogs.length * 140 + 100);
+    } else if (isOpen && logcatInput) {
+      logcatInput.focus();
+    }
   }
+
+  if (logcatToggle) logcatToggle.addEventListener("click", toggleLogcatDrawer);
+  if (footerLogcat) footerLogcat.addEventListener("click", toggleLogcatDrawer);
 
   if (logcatClose && logcatDrawer) {
     logcatClose.addEventListener("click", function () {
