@@ -611,7 +611,521 @@
     initFluidHeroCanvas();
   }
 
-  /* ---- Year ---- */
+  /* ---- Smooth Back to top handlers ---- */
+  function scrollToTop(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: prefersReduced ? "auto" : "smooth"
+    });
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+  }
+
+  var backToTopBtn = document.getElementById("backToTop");
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", scrollToTop);
+  }
+
+  var floatingTop = document.getElementById("floatingTop");
+  if (floatingTop) {
+    floatingTop.addEventListener("click", scrollToTop);
+    function checkFloatingTop() {
+      if (window.scrollY > 450) {
+        floatingTop.classList.add("is-visible");
+      } else {
+        floatingTop.classList.remove("is-visible");
+      }
+    }
+    window.addEventListener("scroll", checkFloatingTop, { passive: true });
+    checkFloatingTop();
+  }
+
+  /* =========================================================
+     Project Category Filters
+     ========================================================= */
+  var filterChips = [].slice.call(document.querySelectorAll(".filter-chip"));
+  var projectCards = [].slice.call(document.querySelectorAll(".projects .card[data-category]"));
+  if (filterChips.length && projectCards.length) {
+    filterChips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        var category = chip.getAttribute("data-filter");
+        filterChips.forEach(function (c) {
+          c.classList.remove("is-active");
+          c.setAttribute("aria-selected", "false");
+        });
+        chip.classList.add("is-active");
+        chip.setAttribute("aria-selected", "true");
+
+        projectCards.forEach(function (card) {
+          var cardCat = card.getAttribute("data-category");
+          if (category === "all" || cardCat === category) {
+            card.classList.remove("is-hidden");
+          } else {
+            card.classList.add("is-hidden");
+          }
+        });
+      });
+    });
+  }
+
+  /* =========================================================
+     Architecture Deep Dive Modal Data & Controller
+     ========================================================= */
+  var deepDiveData = {
+    saregama: {
+      title: "Saregama Padhanisa",
+      subtitle: "AI Vocal Training · 1M+ Downloads · 69% → 99% Crash-Free",
+      challenge: "The consumer app suffered from a 69% crash-free rate and 500+ recurring ANRs caused by heavy real-time pitch-detection DSP algorithms executing on the main UI thread during microphone audio recording.",
+      architecture: [
+        "<strong>Threading Isolation:</strong> Offloaded acoustic pitch detection to a dedicated coroutine pipeline bound to <code>Dispatchers.Default</code> with structured concurrency and cooperative cancellation.",
+        "<strong>ExoPlayer Audio Pipeline:</strong> Built a custom <code>AudioProcessor</code> extracting raw PCM float buffers into a zero-allocation circular buffer directly feeding a Jetpack Compose waveform Canvas renderer.",
+        "<strong>WebRTC & Live Video:</strong> Encapsulated 100ms video call synchronization in a foreground service managing microphone audio focus and device orientation changes."
+      ],
+      metrics: [
+        { num: "69% → 99%", desc: "Crash-free rate jump" },
+        { num: "500+", desc: "Main-thread ANRs eliminated" },
+        { num: "1M+", desc: "Active Play Store downloads" },
+        { num: "4.5 ★", desc: "Average store rating" }
+      ],
+      stack: ["Kotlin", "Jetpack Compose", "Coroutines & Flow", "ExoPlayer", "100ms WebRTC", "FCM"]
+    },
+    airtel: {
+      title: "Airtel Fiverse",
+      subtitle: "Enterprise Fiber Planning · 500+ Cities · Offline First",
+      challenge: "Field engineers had to navigate and edit massive 500MB+ GIS datasets, fiber routes, and 3D utility assets across remote Indian regions with intermittent 2G/3G connectivity without experiencing OOM crashes or sync collisions.",
+      architecture: [
+        "<strong>Offline-First Sync Engine:</strong> Designed a multi-table Room database sync queue with SQLite <code>@Transaction</code> batching, WorkManager exponential backoff, and selective delta reconciliation.",
+        "<strong>Filament 3D & ARCore:</strong> Rendered 3D fiber distribution hubs and utility poles using Google Filament inside an isolated SurfaceView with GLB caching and aggressive Level-of-Detail (LOD) mesh reduction.",
+        "<strong>Spatial Quadtree Maps:</strong> Custom cluster manager for Google Maps SDK with quadtree spatial indexing supporting 100,000+ vector markers at 60 FPS."
+      ],
+      metrics: [
+        { num: "99.2%", desc: "Crash-free production rate" },
+        { num: "500+", desc: "Cities deployed across India" },
+        { num: "40%", desc: "Reduction in field battery drain" },
+        { num: "500MB+", desc: "Offline dataset synced safely" }
+      ],
+      stack: ["Kotlin", "Compose", "Room", "WorkManager", "Hilt", "Maps SDK", "ARCore", "Filament 3D"]
+    },
+    bharatcattle: {
+      title: "BharatCattle",
+      subtitle: "Livestock Marketplace · Real-Time Search & Geolocation",
+      challenge: "Agricultural buyers and sellers operating low-cost devices needed instantaneous listing discovery, multi-attribute filtering, location-based proximity sorting, and secure payments.",
+      architecture: [
+        "<strong>Clean Architecture & MVVM:</strong> Decoupled UI state from domain use cases with Firebase Firestore offline persistence and real-time snapshot listeners.",
+        "<strong>Proximity Geohashing:</strong> Integrated Google Play Services Location SDK with geohash bounds querying for low-latency nearby livestock filtering.",
+        "<strong>Memory & Image Pipeline:</strong> Lazy pagination and compressed cache layer cutting app startup time by 25% on entry-level Android devices."
+      ],
+      metrics: [
+        { num: "100K+", desc: "Users served" },
+        { num: "25%", desc: "Faster startup and screen loads" },
+        { num: "18%", desc: "Increase in buyer engagement" },
+        { num: "4 devs", desc: "Engineering team led" }
+      ],
+      stack: ["Kotlin", "MVVM", "Firebase Firestore", "Android Location Services", "Razorpay"]
+    },
+    drl: {
+      title: "DRL MyFlexa",
+      subtitle: "Telehealth Platform · Dr. Reddy's Laboratories",
+      challenge: "Delivering real-time teleconsultations, appointment reminders, and an interactive anatomical pain heat-map for 2,000+ patients with strict privacy and reliability.",
+      architecture: [
+        "<strong>Custom Anatomical Canvas:</strong> Interactive touch-responsive pain heat-map drawn on custom Android Canvas across 10+ body anatomical zones with vector hit-testing and RGB gradient interpolation.",
+        "<strong>Dual-Channel Communication:</strong> Persistent WebSocket layer for real-time consultation notifications and clinical chat, paired with low-latency WebRTC video streaming.",
+        "<strong>Resilient Room Caching:</strong> Offline consultation history, prescription vault, and encrypted patient profile storage."
+      ],
+      metrics: [
+        { num: "2K+", desc: "Patients onboarded" },
+        { num: "35%", desc: "Reduction in network API calls" },
+        { num: "0", desc: "Dropped consultation handshakes" },
+        { num: "10+", desc: "Body anatomical heat-map zones" }
+      ],
+      stack: ["Kotlin", "WebRTC", "ExoPlayer", "Custom Canvas", "WebSocket", "Room SQLite"]
+    },
+    cengage: {
+      title: "Cengage Digital",
+      subtitle: "Offline EdTech Platform · 15K+ Active Students",
+      challenge: "Delivering offline DRM-protected textbooks, video chapters, and adaptive quizzes to 15,000+ students in low-connectivity areas while preventing unauthorized content duplication.",
+      architecture: [
+        "<strong>AES-256 Crypto Pipeline:</strong> Hardware-backed cryptographic decryption with Android Keystore for secure local chapter caching and watermarking.",
+        "<strong>Adaptive Quiz State Machine:</strong> Client-side Finite State Machine (FSM) assessing student answers offline and reconciling performance metrics with the cloud upon reconnection.",
+        "<strong>Payment Integrity:</strong> Razorpay SDK integration with offline intent verification and cryptographically signed local receipt tokens."
+      ],
+      metrics: [
+        { num: "100K+", desc: "Play Store downloads" },
+        { num: "15K+", desc: "Active offline students" },
+        { num: "99.4%", desc: "Payment success rate" },
+        { num: "AES-256", desc: "Hardware-backed DRM encryption" }
+      ],
+      stack: ["Kotlin", "Room", "AES-256", "State Machine", "Razorpay SDK"]
+    },
+    cicr: {
+      title: "CICR Cotton",
+      subtitle: "AgriTech Field Mapping & Multilingual Advisory",
+      challenge: "Providing localized crop disease diagnostics, weather telemetry, and field GPS boundary mapping to rural farmers in Hindi, Marathi, and English without requiring constant mobile data.",
+      architecture: [
+        "<strong>Offline GIS & Polygons:</strong> Google Maps SDK polygon boundary mapping backed by Room SQLite offline coordinate storage.",
+        "<strong>Dynamic Locale Switching:</strong> Runtime localization switching (Hindi, Marathi, English) without memory leaks or configuration recreation loops."
+      ],
+      metrics: [
+        { num: "100%", desc: "Functional offline without cellular data" },
+        { num: "3", desc: "Supported languages (Hindi, Marathi, English)" },
+        { num: "GIS", desc: "Field polygon boundary mapping" }
+      ],
+      stack: ["Kotlin", "Google Maps SDK", "Room", "Android i18n"]
+    }
+  };
+
+  var deepDiveModal = document.getElementById("deepDiveModal");
+  var deepDiveTitle = document.getElementById("deepDiveTitle");
+  var deepDiveSubtitle = document.getElementById("deepDiveSubtitle");
+  var deepDiveBody = document.getElementById("deepDiveBody");
+  var closeDeepDive = document.getElementById("closeDeepDive");
+
+  function openDeepDive(key) {
+    var data = deepDiveData[key];
+    if (!data || !deepDiveModal) return;
+    deepDiveTitle.textContent = data.title;
+    deepDiveSubtitle.textContent = data.subtitle;
+
+    var metricsHtml = data.metrics.map(function (m) {
+      return '<div class="deepdive__metric-box">' +
+               '<div class="deepdive__metric-num">' + m.num + '</div>' +
+               '<div class="deepdive__metric-desc">' + m.desc + '</div>' +
+             '</div>';
+    }).join("");
+
+    var archHtml = data.architecture.map(function (item) {
+      return '<p>' + item + '</p>';
+    }).join("");
+
+    var stackHtml = data.stack.map(function (s) {
+      return '<span>' + s + '</span>';
+    }).join("");
+
+    deepDiveBody.innerHTML =
+      '<div class="deepdive__section">' +
+        '<h4>Engineering Challenge</h4>' +
+        '<p>' + data.challenge + '</p>' +
+      '</div>' +
+      '<div class="deepdive__section">' +
+        '<h4>Architecture & Implementation</h4>' +
+        archHtml +
+      '</div>' +
+      '<div class="deepdive__section">' +
+        '<h4>Key Outcomes & Metrics</h4>' +
+        '<div class="deepdive__grid">' + metricsHtml + '</div>' +
+      '</div>' +
+      '<div class="deepdive__section">' +
+        '<h4>Tech Stack</h4>' +
+        '<div class="deepdive__tech-chips">' + stackHtml + '</div>' +
+      '</div>';
+
+    deepDiveModal.classList.add("is-open");
+    deepDiveModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeAllModals() {
+    [deepDiveModal, resumeModal, cmdPaletteModal].forEach(function (m) {
+      if (m) {
+        m.classList.remove("is-open");
+        m.setAttribute("aria-hidden", "true");
+      }
+    });
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll("[data-deepdive]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var key = btn.getAttribute("data-deepdive");
+      openDeepDive(key);
+    });
+  });
+
+  if (closeDeepDive) closeDeepDive.addEventListener("click", closeAllModals);
+  if (deepDiveModal) {
+    deepDiveModal.addEventListener("click", function (e) {
+      if (e.target === deepDiveModal) closeAllModals();
+    });
+  }
+
+  /* =========================================================
+     Résumé Quick Preview Modal Controller
+     ========================================================= */
+  var resumeModal = document.getElementById("resumeModal");
+  var resumeBtn = document.getElementById("resumePreviewBtn");
+  var closeResume = document.getElementById("closeResumeModal");
+
+  function openResumeModal() {
+    if (!resumeModal) return;
+    resumeModal.classList.add("is-open");
+    resumeModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  if (resumeBtn) resumeBtn.addEventListener("click", openResumeModal);
+  if (closeResume) closeResume.addEventListener("click", closeAllModals);
+  if (resumeModal) {
+    resumeModal.addEventListener("click", function (e) {
+      if (e.target === resumeModal) closeAllModals();
+    });
+  }
+
+  /* =========================================================
+     Command Palette (Cmd + K) Controller
+     ========================================================= */
+  var cmdPaletteModal = document.getElementById("cmdPaletteModal");
+  var cmdToggle = document.getElementById("cmdToggle");
+  var cmdInput = document.getElementById("cmdInput");
+  var cmdList = document.getElementById("cmdList");
+
+  var cmdCommands = [
+    { title: "Download Résumé (PDF)", category: "Actions", icon: "M12 15.5 7 10.5l1.4-1.4 2.6 2.6V3h2v8.7l2.6-2.6L17 10.5l-5 5ZM5 19h14v2H5v-2Z", action: function () {
+      var a = document.createElement("a"); a.href = "assets/resume.pdf"; a.download = "Tejbhan_Sahu_Resume.pdf"; a.click();
+    }},
+    { title: "Preview Résumé in Browser", category: "Actions", icon: "M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z", action: openResumeModal },
+    { title: "Copy Email Address", category: "Actions", badge: "tejbhansahu0.ts@gmail.com", icon: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z", action: function () {
+      navigator.clipboard.writeText("tejbhansahu0.ts@gmail.com"); alert("Email copied to clipboard!");
+    }},
+    { title: "Call Phone Number", category: "Actions", badge: "+91 73506 90287", icon: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z", action: function () {
+      window.location.href = "tel:+917350690287";
+    }},
+    { title: "Toggle Color Theme (Dark / Light)", category: "Actions", icon: "M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z", action: function () {
+      var t = document.getElementById("themeToggle"); if (t) t.click();
+    }},
+    { title: "Open Android ADB Logcat Console", category: "Actions", badge: "Drawer", icon: "M4 17l6-6-6-6m8 14h8", action: function () {
+      var d = document.getElementById("logcatDrawer"); if (d) d.classList.add("is-open");
+    }},
+    { title: "Jump to Companies & Clients", category: "Navigation", icon: "m9 18 6-6-6-6", action: function () { document.getElementById("clients").scrollIntoView({ behavior: "smooth" }); }},
+    { title: "Jump to About Section", category: "Navigation", icon: "m9 18 6-6-6-6", action: function () { document.getElementById("about").scrollIntoView({ behavior: "smooth" }); }},
+    { title: "Jump to Impact Metrics", category: "Navigation", icon: "m9 18 6-6-6-6", action: function () { document.getElementById("impact").scrollIntoView({ behavior: "smooth" }); }},
+    { title: "Jump to Experience Timeline", category: "Navigation", icon: "m9 18 6-6-6-6", action: function () { document.getElementById("experience").scrollIntoView({ behavior: "smooth" }); }},
+    { title: "Jump to Featured Projects", category: "Navigation", icon: "m9 18 6-6-6-6", action: function () { document.getElementById("projects").scrollIntoView({ behavior: "smooth" }); }},
+    { title: "Jump to Skills & Tech Stack", category: "Navigation", icon: "m9 18 6-6-6-6", action: function () { document.getElementById("skills").scrollIntoView({ behavior: "smooth" }); }},
+    { title: "Jump to Contact", category: "Navigation", icon: "m9 18 6-6-6-6", action: function () { document.getElementById("contact").scrollIntoView({ behavior: "smooth" }); }},
+    { title: "Project: Saregama Padhanisa (Architecture)", category: "Projects", badge: "1M+ Downloads", icon: "m12 2 10 5-10 5-10-5 10-5Z", action: function () { openDeepDive("saregama"); }},
+    { title: "Project: Airtel Fiverse (Architecture)", category: "Projects", badge: "500+ Cities", icon: "m12 2 10 5-10 5-10-5 10-5Z", action: function () { openDeepDive("airtel"); }},
+    { title: "Project: DRL MyFlexa (Architecture)", category: "Projects", badge: "Telehealth", icon: "m12 2 10 5-10 5-10-5 10-5Z", action: function () { openDeepDive("drl"); }},
+    { title: "Project: BharatCattle (Architecture)", category: "Projects", badge: "Marketplace", icon: "m12 2 10 5-10 5-10-5 10-5Z", action: function () { openDeepDive("bharatcattle"); }},
+    { title: "Project: Cengage Digital (Architecture)", category: "Projects", badge: "100K+ Users", icon: "m12 2 10 5-10 5-10-5 10-5Z", action: function () { openDeepDive("cengage"); }},
+    { title: "Open GitHub Profile", category: "Socials", badge: "@tejbhansahu", icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4", action: function () { window.open("https://github.com/tejbhansahu", "_blank"); }},
+    { title: "Open LinkedIn Profile", category: "Socials", badge: "in/tejbhan-sahu", icon: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z", action: function () { window.open("https://www.linkedin.com/in/tejbhan-sahu-23704689", "_blank"); }}
+  ];
+
+  var activeCmdIndex = 0;
+  function renderCommands(query) {
+    if (!cmdList) return;
+    var q = (query || "").toLowerCase().trim();
+    var filtered = cmdCommands.filter(function (cmd) {
+      return !q || cmd.title.toLowerCase().indexOf(q) !== -1 || (cmd.badge && cmd.badge.toLowerCase().indexOf(q) !== -1) || cmd.category.toLowerCase().indexOf(q) !== -1;
+    });
+
+    if (!filtered.length) {
+      cmdList.innerHTML = '<li class="cmd-palette__group-title">No matching commands</li>';
+      return;
+    }
+
+    var currentCat = "";
+    var html = "";
+    filtered.forEach(function (cmd, idx) {
+      if (cmd.category !== currentCat) {
+        currentCat = cmd.category;
+        html += '<li class="cmd-palette__group-title">' + currentCat + '</li>';
+      }
+      var isSel = idx === activeCmdIndex ? " is-selected" : "";
+      html += '<li class="cmd-palette__item' + isSel + '" data-cmd-idx="' + idx + '" role="option">' +
+                '<div class="cmd-palette__item-left">' +
+                  '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="' + cmd.icon + '"/></svg>' +
+                  '<span>' + cmd.title + '</span>' +
+                '</div>' +
+                (cmd.badge ? '<span class="cmd-palette__badge">' + cmd.badge + '</span>' : '') +
+              '</li>';
+    });
+    cmdList.innerHTML = html;
+
+    // Attach click handlers
+    cmdList.querySelectorAll(".cmd-palette__item").forEach(function (el) {
+      el.addEventListener("click", function () {
+        var idx = parseInt(el.getAttribute("data-cmd-idx"), 10);
+        closeAllModals();
+        if (filtered[idx] && filtered[idx].action) filtered[idx].action();
+      });
+    });
+  }
+
+  function openCommandPalette() {
+    if (!cmdPaletteModal) return;
+    cmdPaletteModal.classList.add("is-open");
+    cmdPaletteModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    activeCmdIndex = 0;
+    if (cmdInput) {
+      cmdInput.value = "";
+      renderCommands("");
+      setTimeout(function () { cmdInput.focus(); }, 50);
+    }
+  }
+
+  if (cmdToggle) cmdToggle.addEventListener("click", openCommandPalette);
+  if (cmdPaletteModal) {
+    cmdPaletteModal.addEventListener("click", function (e) {
+      if (e.target === cmdPaletteModal) closeAllModals();
+    });
+  }
+  if (cmdInput) {
+    cmdInput.addEventListener("input", function () {
+      activeCmdIndex = 0;
+      renderCommands(cmdInput.value);
+    });
+    cmdInput.addEventListener("keydown", function (e) {
+      var items = cmdList.querySelectorAll(".cmd-palette__item");
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        activeCmdIndex = (activeCmdIndex + 1) % Math.max(1, items.length);
+        renderCommands(cmdInput.value);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        activeCmdIndex = (activeCmdIndex - 1 + items.length) % Math.max(1, items.length);
+        renderCommands(cmdInput.value);
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        var selected = cmdList.querySelector(".cmd-palette__item.is-selected");
+        if (selected) selected.click();
+      }
+    });
+  }
+
+  // Global Keyboard Shortcuts (Cmd+K and ESC)
+  window.addEventListener("keydown", function (e) {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      if (cmdPaletteModal && cmdPaletteModal.classList.contains("is-open")) {
+        closeAllModals();
+      } else {
+        openCommandPalette();
+      }
+    } else if (e.key === "Escape") {
+      closeAllModals();
+      var drawer = document.getElementById("logcatDrawer");
+      if (drawer) drawer.classList.remove("is-open");
+    }
+  });
+
+  /* =========================================================
+     ADB Logcat Drawer & Terminal Simulator (Easter Egg)
+     ========================================================= */
+  var logcatDrawer = document.getElementById("logcatDrawer");
+  var logcatToggle = document.getElementById("logcatToggle");
+  var logcatClose = document.getElementById("logcatClose");
+  var logcatClear = document.getElementById("logcatClear");
+  var logcatTerminal = document.getElementById("logcatTerminal");
+  var logcatInput = document.getElementById("logcatInput");
+
+  var sampleLogs = [
+    { tag: "I", comp: "AndroidRuntime", msg: "Calling main entry point com.tejbhansahu.portfolio.MainActivity" },
+    { tag: "D", comp: "HiltEngine", msg: "Injected ProfileComponent: 6+ yrs experience, 1M+ downloads, 99.2% crash-free" },
+    { tag: "I", comp: "JetpackCompose", msg: "Recomposition skip count: 99.4% (zero jank observed on 120Hz display)" },
+    { tag: "D", comp: "ExoPlayer", msg: "AudioProcessor PCM buffer connected to Compose Canvas waveform renderer" },
+    { tag: "I", comp: "RoomWorkManager", msg: "Offline sync queue verified for 500+ cities with exponential backoff" },
+    { tag: "D", comp: "Filament3D", msg: "GLB asset shader cache warm; LOD level 0 active" },
+    { tag: "I", comp: "Crashlytics", msg: "ANR rate: 0.00% · Fatal crash rate: 0.08% (Production scale: 1M+ users)" }
+  ];
+
+  function addLogLine(tag, comp, msg) {
+    if (!logcatTerminal) return;
+    var now = new Date();
+    var timeStr = ("0" + (now.getMonth() + 1)).slice(-2) + "-" +
+                  ("0" + now.getDate()).slice(-2) + " " +
+                  ("0" + now.getHours()).slice(-2) + ":" +
+                  ("0" + now.getMinutes()).slice(-2) + ":" +
+                  ("0" + now.getSeconds()).slice(-2) + "." +
+                  ("00" + now.getMilliseconds()).slice(-3);
+    var div = document.createElement("div");
+    div.className = "logcat-entry";
+    div.innerHTML = '<span class="logcat-time">' + timeStr + '</span> ' +
+                    '<span class="logcat-tag--' + tag.toLowerCase() + '">' + tag + '/' + comp + ':</span> ' +
+                    '<span class="logcat-msg">' + msg + '</span>';
+    logcatTerminal.appendChild(div);
+    logcatTerminal.scrollTop = logcatTerminal.scrollHeight;
+  }
+
+  var logcatLoaded = false;
+  if (logcatToggle && logcatDrawer) {
+    logcatToggle.addEventListener("click", function () {
+      var isOpen = logcatDrawer.classList.toggle("is-open");
+      if (isOpen && !logcatLoaded) {
+        logcatLoaded = true;
+        sampleLogs.forEach(function (l, i) {
+          setTimeout(function () { addLogLine(l.tag, l.comp, l.msg); }, i * 140);
+        });
+        setTimeout(function () {
+          addLogLine("I", "LogcatCLI", "Ready. Type 'help' to inspect Android system commands.");
+          if (logcatInput) logcatInput.focus();
+        }, sampleLogs.length * 140 + 100);
+      } else if (isOpen && logcatInput) {
+        logcatInput.focus();
+      }
+    });
+  }
+
+  if (logcatClose && logcatDrawer) {
+    logcatClose.addEventListener("click", function () {
+      logcatDrawer.classList.remove("is-open");
+    });
+  }
+
+  if (logcatClear && logcatTerminal) {
+    logcatClear.addEventListener("click", function () {
+      logcatTerminal.innerHTML = "";
+      addLogLine("I", "LogcatCLI", "Terminal buffer cleared. Type 'help' for commands.");
+    });
+  }
+
+  if (logcatInput) {
+    logcatInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        var cmd = logcatInput.value.trim().toLowerCase();
+        logcatInput.value = "";
+        if (!cmd) return;
+        addLogLine("I", "UserPrompt", "$ " + cmd);
+
+        switch (cmd) {
+          case "help":
+            addLogLine("I", "Help", "Available commands: 'skills', 'experience', 'projects', 'stats', 'contact', 'theme', 'clear', 'exit'");
+            break;
+          case "skills":
+            addLogLine("D", "Skills", "Kotlin, Jetpack Compose, Coroutines/Flow, MVVM/MVI, Room, Hilt, ExoPlayer, Maps SDK, Filament 3D");
+            break;
+          case "experience":
+            addLogLine("D", "Experience", "InnovationM (Lead Android) · Squareboat (Mobile Engineer L1) · Techtonic (Android Developer)");
+            break;
+          case "projects":
+            addLogLine("D", "Projects", "1. Saregama Padhanisa · 2. Airtel Fiverse · 3. BharatCattle · 4. DRL MyFlexa · 5. Cengage Digital · 6. CICR Cotton");
+            break;
+          case "stats":
+            addLogLine("D", "Stats", "6+ Years Experience · 1M+ Installs · 99.2% Crash-Free · 500+ ANRs Removed · 5 Devs Led");
+            break;
+          case "contact":
+            addLogLine("I", "Contact", "Email: tejbhansahu0.ts@gmail.com | Phone: +91 73506 90287 | Location: Maharashtra, India");
+            break;
+          case "theme":
+            var t = document.getElementById("themeToggle"); if (t) t.click();
+            addLogLine("I", "Theme", "Theme switched successfully.");
+            break;
+          case "clear":
+            if (logcatTerminal) logcatTerminal.innerHTML = "";
+            break;
+          case "exit":
+            if (logcatDrawer) logcatDrawer.classList.remove("is-open");
+            break;
+          default:
+            addLogLine("W", "UnknownCommand", "Command not recognized: '" + cmd + "'. Type 'help' for command list.");
+        }
+      }
+    });
+  }
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
