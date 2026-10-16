@@ -1134,6 +1134,109 @@
       }
     });
   }
+  /* =========================================================
+     Android Runtime Features: Clock, Lifecycle & Toast
+     ========================================================= */
+
+  /* Live Pixel Device Clock */
+  function updateDeviceClock() {
+    var clockEl = document.getElementById("deviceClock");
+    if (!clockEl) return;
+    var now = new Date();
+    var hours = ("0" + now.getHours()).slice(-2);
+    var mins = ("0" + now.getMinutes()).slice(-2);
+    clockEl.textContent = hours + ":" + mins;
+  }
+  updateDeviceClock();
+  setInterval(updateDeviceClock, 30000);
+
+  /* Simulated Material 3 Toast Notification */
+  var activeToastTimeout = null;
+  function showAndroidToast(message, icon) {
+    var toast = document.getElementById("androidToast");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.id = "androidToast";
+      toast.className = "android-toast";
+      toast.setAttribute("role", "status");
+      toast.setAttribute("aria-live", "polite");
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = '<span class="android-toast__bot">' + (icon || "🤖") + '</span><span>' + message + '</span>';
+    toast.classList.add("is-show");
+    if (activeToastTimeout) clearTimeout(activeToastTimeout);
+    activeToastTimeout = setTimeout(function () {
+      toast.classList.remove("is-show");
+    }, 3400);
+  }
+
+  /* Interactive Android Activity Lifecycle Controller */
+  var lifecycleStage = document.getElementById("lifecycleStage");
+  var lifecycleSteps = ["ON_CREATE", "ON_START", "ON_RESUME", "ON_PAUSE", "ON_STOP"];
+  var stepDescriptions = {
+    "ON_CREATE": "Activity created & ViewModel initialized (Cold launch: 380ms)",
+    "ON_START": "Activity visible, observing StateFlow flows",
+    "ON_RESUME": "Activity interactive (UI frame rendered in 16ms · 60 FPS)",
+    "ON_PAUSE": "Activity backgrounding, state preserved in SavedStateHandle",
+    "ON_STOP": "Activity hidden, releasing ExoPlayer hardware decoders"
+  };
+  var currentStageIndex = 2; // starts at ON_RESUME
+
+  function advanceLifecycleStage() {
+    currentStageIndex = (currentStageIndex + 1) % lifecycleSteps.length;
+    var newStage = lifecycleSteps[currentStageIndex];
+    var chips = document.querySelectorAll(".android-lifecycle .stage-step");
+    chips.forEach(function (c) {
+      var s = c.getAttribute("data-stage");
+      var isMatch = false;
+      if (s === "create" && newStage === "ON_CREATE") isMatch = true;
+      if (s === "start" && newStage === "ON_START") isMatch = true;
+      if (s === "resume" && newStage === "ON_RESUME") isMatch = true;
+      if (isMatch) {
+        c.classList.add("is-active");
+        c.innerHTML = '<span class="stage-pulse"></span>' + newStage;
+      } else {
+        c.classList.remove("is-active");
+        c.innerHTML = s === "create" ? "ON_CREATE" : (s === "start" ? "ON_START" : "ON_RESUME");
+      }
+    });
+
+    var desc = stepDescriptions[newStage] || "Transitioned to " + newStage;
+    showAndroidToast('Activity: <strong>' + newStage + '</strong> · ' + desc, "🤖");
+
+    if (typeof addLogLine === "function") {
+      addLogLine("I", "ActivityLifecycle", "MainActivity: " + newStage + "() -> " + desc);
+    }
+  }
+
+  if (lifecycleStage) {
+    lifecycleStage.addEventListener("click", advanceLifecycleStage);
+    lifecycleStage.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        advanceLifecycleStage();
+      }
+    });
+  }
+
+  /* Material 3 Touch Ripple Effect */
+  function createM3Ripple(e) {
+    var btn = e.currentTarget;
+    if (!btn) return;
+    var rect = btn.getBoundingClientRect();
+    var ripple = document.createElement("span");
+    ripple.className = "m3-ripple";
+    var size = Math.max(rect.width, rect.height) * 2;
+    ripple.style.width = ripple.style.height = size + "px";
+    ripple.style.left = (e.clientX - rect.left - size / 2) + "px";
+    ripple.style.top = (e.clientY - rect.top - size / 2) + "px";
+    btn.appendChild(ripple);
+    setTimeout(function () { ripple.remove(); }, 600);
+  }
+  document.querySelectorAll(".card__btn-play, .card__deepdive-btn, .btn, .filter-chip").forEach(function (el) {
+    el.addEventListener("click", createM3Ripple);
+  });
+
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
