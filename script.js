@@ -890,7 +890,7 @@
 
   var cmdCommands = [
     { title: "Download Résumé (PDF)", category: "Actions", icon: "M12 15.5 7 10.5l1.4-1.4 2.6 2.6V3h2v8.7l2.6-2.6L17 10.5l-5 5ZM5 19h14v2H5v-2Z", action: function () {
-      var a = document.createElement("a"); a.href = "assets/Android%20Developer%20-%206%2B%20YOE.pdf"; a.download = "Tejbhan_Sahu_Resume.pdf"; a.click();
+      var a = document.createElement("a"); a.href = "assets/Android_Developer_6YOE.pdf"; a.download = "Tejbhan_Sahu_Resume.pdf"; a.click();
     }},
     { title: "Preview Résumé in Browser", category: "Actions", icon: "M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z", action: openResumeModal },
     { title: "Copy Email Address", category: "Actions", badge: "tejbhansahu0.ts@gmail.com", icon: "M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z", action: function () {
