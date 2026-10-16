@@ -858,6 +858,31 @@ strong { color: var(--text); font-weight: 600; }
 .logos--clients .logo-tile { height: 126px; }
 .logos--clients .logo-tile img { max-height: 58px; max-width: 82%; }
 
+/* Centralize bottom client logo cards */
+@media (min-width: 860px) {
+  .logos--clients {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  .logos--clients .logo-tile {
+    width: calc((100% - 4 * 16px) / 5);
+  }
+}
+
+@media (min-width: 681px) and (max-width: 859px) {
+  .logos--clients {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+  .logos--clients .logo-tile {
+    width: calc((100% - 2 * 14px) / 3);
+  }
+}
+
 /* ---------- Education & awards ---------- */
 .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
 .edu__col-title { font-family: var(--font-head); font-size: .78rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-faint); margin-bottom: 16px; }
@@ -1119,16 +1144,23 @@ strong { color: var(--text); font-weight: 600; }
 
   /* Companies & Clients */
   .logos {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
+  }
+  .logos--clients .logo-tile {
+    width: 100%;
+    height: 92px;
+  }
+  .logos--clients .logo-tile:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 6px);
+    margin: 0 auto;
   }
   .logo-tile {
     height: 84px;
     padding: 12px 16px;
     border-radius: 14px;
-  }
-  .logos--clients .logo-tile {
-    height: 92px;
   }
 
   /* Impact Stats */
